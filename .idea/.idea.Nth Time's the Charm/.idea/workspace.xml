@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/ReligionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/CulturesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/IdeologiesLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/ContinentLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/FileUnpacker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/LoadMethods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/LoadMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/TerrainLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/DataBox.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/UnifiedVariables.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/MapLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/IssuesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/AdjacenciesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/NationalValueLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/ProvinceHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/EventsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CountryHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/GovernmentsLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/LoadGeneric.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/BuildingsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Goods.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/GoodsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Provinces.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Countries.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CrimeLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/ProvincePopulationLoad.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion.cs" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Loading/MapLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/BuildingsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CrimeLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadGeneric.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadingMain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ReligionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CulturesLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ContinentLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadVariables.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/TerrainLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadMain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/IdeologiesLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadMethods.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/FileUnpacker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/UnifiedVariables.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Goods.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/CameraMove.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Countries.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XUzaEC1FXR3sNLQCRICbS8qmtq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="2564">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="2564" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="" />
+      <created>1581115523473</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581115523473</updated>
+      <workItem from="1581115531200" duration="5204000" />
+      <workItem from="1581632204966" duration="7825000" />
+      <workItem from="1581696809283" duration="2979000" />
+      <workItem from="1581732322179" duration="114000" />
+      <workItem from="1581732729287" duration="2399000" />
+      <workItem from="1581736647106" duration="4823000" />
+      <workItem from="1581784281268" duration="5906000" />
+      <workItem from="1582744585310" duration="603000" />
+      <workItem from="1582846104517" duration="1822000" />
+      <workItem from="1583277503903" duration="1906000" />
+      <workItem from="1583520983597" duration="15190000" />
+      <workItem from="1583542678139" duration="6053000" />
+      <workItem from="1583553157461" duration="2544000" />
+      <workItem from="1583621211310" duration="11224000" />
+      <workItem from="1583643976886" duration="415000" />
+      <workItem from="1584150781700" duration="2250000" />
+      <workItem from="1584220413694" duration="9946000" />
+      <workItem from="1584231001803" duration="28000" />
+      <workItem from="1584231057836" duration="13886000" />
+      <workItem from="1584299434545" duration="12413000" />
+      <workItem from="1584665282209" duration="4887000" />
+      <workItem from="1584673058744" duration="3919000" />
+      <workItem from="1584738908289" duration="1104000" />
+      <workItem from="1584742487109" duration="5075000" />
+      <workItem from="1585963773454" duration="367000" />
+      <workItem from="1587343335508" duration="718000" />
+      <workItem from="1587418083337" duration="29047000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581732422767">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1581732422767" />
+    <state x="714" y="389" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1584229967793">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="714" y="389" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1080@0.0.1920.1080" timestamp="1584229967793" />
+    <state width="411" height="646" key="DebuggerActiveHint" timestamp="1583553891146">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="411" height="646" key="DebuggerActiveHint/0.0.1920.1080@0.0.1920.1080" timestamp="1583553891146" />
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1584672752048">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584672752048" />
+    <state x="809" y="441" key="Github.ShareDialog" timestamp="1587448035047">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="809" y="441" key="Github.ShareDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587448035047" />
+    <state width="1877" height="387" key="GridCell.Tab.0.bottom" timestamp="1587426542723">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542723" />
+    <state width="1877" height="387" key="GridCell.Tab.0.center" timestamp="1587426542723">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542723" />
+    <state width="1877" height="387" key="GridCell.Tab.0.left" timestamp="1587426542723">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542723" />
+    <state width="1877" height="387" key="GridCell.Tab.0.right" timestamp="1587426542723">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542723" />
+    <state width="1877" height="387" key="GridCell.Tab.1.bottom" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.1.center" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.1.left" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.1.right" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.2.bottom" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.2.center" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.2.left" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.2.right" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.3.bottom" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.3.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.3.center" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.3.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.3.left" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.3.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state width="1877" height="387" key="GridCell.Tab.3.right" timestamp="1587426542724">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="387" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587426542724" />
+    <state x="670" y="147" key="RiderGenerateDialog" timestamp="1584240170249">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="670" y="147" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584240170249" />
+    <state x="461" y="183" width="1158" height="809" key="SettingsEditor" timestamp="1587448290572">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="183" width="1158" height="809" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1587448290572" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1581737790704">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1581737790704" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587448265040">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587448265040" />
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1584672752048">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584672752048" />
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.RecentChangeDialog" timestamp="1584672152238">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.RecentChangeDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584672152238" />
+    <state x="767" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587448100680">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="767" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587448100680" />
+    <state x="639" y="144" width="758" height="792" key="find.popup" timestamp="1581737454358">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="639" y="144" width="758" height="792" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1581737454358" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1587443567549">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1587443567549" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs</url>
+          <line>70</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" initialLine="65">
+            <startOffsets>
+              <option value="2651" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2696" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

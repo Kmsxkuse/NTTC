@@ -1,0 +1,43 @@
+[
+  {
+    "Item1": "owner",
+    "Item2": "ham"
+  },
+  {
+    "Item1": "controller",
+    "Item2": "ham"
+  },
+  {
+    "Item1": "add_core",
+    "Item2": "ham"
+  },
+  {
+    "Item1": "add_core",
+    "Item2": "ger"
+  },
+  {
+    "Item1": "trade_goods",
+    "Item2": "fruit"
+  },
+  {
+    "Item1": "life_rating",
+    "Item2": "40"
+  },
+  {
+    "Item1": "fort",
+    "Item2": "1"
+  },
+  {
+    "Item1": "naval_base",
+    "Item2": "1"
+  },
+  {
+    "Item1": "1861.1.1",
+    "Item2": [
+      {
+        "Item1": "railroad",
+        "Item2": "3"
+      }
+    ]
+  }
+]
