@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -9,17 +10,24 @@ namespace CamCode
 {
     public class MainCam : MonoBehaviour
     {
-        public Material MapMaterial;
+        public Material MapMaterial, BlendMaterial;
 
         public static Transform MainTransform, SubTransform;
         public static Bounds Bounds;
-        
+        public static RenderTexture TerrainTexture, OceanTexture;
+        public static Camera TerrainCam, OceanCam;
+
         private Camera _camera;
         private ComputeBuffer _provLookup;
         private EntityManager _em;
         private float _orthographicSize;
+        
         private static readonly int ProvColorBuffer = Shader.PropertyToID("floatBuffer");
         private static readonly int CountryBorderToggle = Shader.PropertyToID("countryBorderToggle");
+        private static readonly int SecondTex = Shader.PropertyToID("_SecondTex");
+        private static readonly int SkipColor = Shader.PropertyToID("_SkipColor");
+        private static readonly int SkipDirection = Shader.PropertyToID("_SkipDirection");
+        private static readonly int BlendStrength = Shader.PropertyToID("_BlendStrength");
 
         private Vector2 _movement;
         private Vector3 _delta, _dragOrigin;
@@ -46,6 +54,8 @@ namespace CamCode
                 
                 _provLookup.SetData(provTable);
             }
+            // Ocean tiles special colors. Defined in Countries Load.
+            BlendMaterial.SetVector(SkipColor, (Color) (new Color32(0, 191, 255, 255)));
         }
 
         private void Update()
@@ -90,7 +100,8 @@ namespace CamCode
             if (_orthoChanged)
             {
                 _movement /= _orthographicSize;
-                _camera.orthographicSize = _orthographicSize = math.clamp(_scrollDirection + _orthographicSize, 0.2f, 5f);
+                _camera.orthographicSize = TerrainCam.orthographicSize = OceanCam.orthographicSize =
+                    _orthographicSize = math.clamp(_scrollDirection + _orthographicSize, 0.2f, 5f);
                 _movement *= _orthographicSize;
                 
                 _orthoChanged = false;
@@ -151,9 +162,28 @@ namespace CamCode
         {
             MapMaterial.SetBuffer(ProvColorBuffer, _provLookup);
             // Passing which border to render.
-            MapMaterial.SetInt(CountryBorderToggle, _orthographicSize > 3f ? 0 : 1);
-            // Dest critical in using multiple cameras
-            Graphics.Blit(src, dest, MapMaterial);
+            MapMaterial.SetInt(CountryBorderToggle, _orthographicSize > 1.5f ? 0 : 1);
+
+            var terrainTemp = RenderTexture.GetTemporary(src.descriptor);
+            var oceanTemp = RenderTexture.GetTemporary(src.descriptor);
+            
+            // Province coloring.
+            Graphics.Blit(src, terrainTemp, MapMaterial);
+            
+            // Overlay combination. Fuck Unity.
+            // Terrain
+            BlendMaterial.SetTexture(SecondTex, TerrainTexture);
+            BlendMaterial.SetFloat(SkipDirection, 1);
+            BlendMaterial.SetFloat(BlendStrength, 0.5f);
+            Graphics.Blit(terrainTemp, oceanTemp, BlendMaterial);
+            // Ocean
+            BlendMaterial.SetTexture(SecondTex, OceanTexture);
+            BlendMaterial.SetFloat(SkipDirection, 0);
+            BlendMaterial.SetFloat(BlendStrength, 0.75f);
+            Graphics.Blit(oceanTemp, dest, BlendMaterial);
+            
+            terrainTemp.Release();
+            oceanTemp.Release();
         }
     }
 }

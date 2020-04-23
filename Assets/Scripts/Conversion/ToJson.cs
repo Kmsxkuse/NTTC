@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using CamCode;
-using Newtonsoft.Json;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;

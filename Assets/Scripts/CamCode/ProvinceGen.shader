@@ -53,10 +53,10 @@
             int state = ceil(p.b * 255 + p.a * 255 * 256);
             
             // Sampling cardinal directions for border
-            float4 up = tex2D(_MainTex, i.uv + float2(0, _MainTex_TexelSize.y));
-            float4 down = tex2D(_MainTex, i.uv - float2(0, _MainTex_TexelSize.y));
-            float4 left = tex2D(_MainTex, i.uv - float2(_MainTex_TexelSize.x, 0));
-            float4 right = tex2D(_MainTex, i.uv + float2(_MainTex_TexelSize.x, 0));
+            float4 up       = tex2D(_MainTex, i.uv + float2(0, _MainTex_TexelSize.y));
+            float4 down     = tex2D(_MainTex, i.uv - float2(0, _MainTex_TexelSize.y));
+            float4 left     = tex2D(_MainTex, i.uv - float2(_MainTex_TexelSize.x, 0));
+            float4 right    = tex2D(_MainTex, i.uv + float2(_MainTex_TexelSize.x, 0));
         
             int iU = ceil(up.r * 255 + up.g * 255 * 256);
             int iD = ceil(down.r * 255 + down.g * 255 * 256);
@@ -68,10 +68,6 @@
             int sL = ceil(left.b * 255 + left.a * 255 * 256);
             int sR = ceil(right.b * 255 + right.a * 255 * 256);
             
-            // Todo, possible diagonal border coloring?
-            
-            // Todo, possible bilinear filtering?
-            
             float4 curProvColor = floatBuffer[index];
                 
             float stateSum = saturate(abs(sU - state) + abs(sD - state) + abs(sL - state) + abs(sR - state));
@@ -82,7 +78,7 @@
                 (1 - countryBorderToggle) * dot(abs(floatBuffer[iU] - curProvColor) + abs(floatBuffer[iD] - curProvColor) +
                 abs(floatBuffer[iL] - curProvColor) + abs(floatBuffer[iR] - curProvColor), float4(1,1,1,0)); 
             
-            return sum < 0.001 ? curProvColor : borderColor;
+            return lerp(curProvColor, borderColor, step(0.01, sum));
         }
             
         ENDCG
