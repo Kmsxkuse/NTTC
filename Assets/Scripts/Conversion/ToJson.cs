@@ -67,8 +67,6 @@ namespace Conversion
             var colorMap = new NativeArray<Color32>(map.GetPixels32(), Allocator.TempJob);
             var idMap = new NativeArray<Color32>(colorMap.Length, Allocator.TempJob);
             
-            //throw new Exception("STOPPPPPPPPPPPPPPPPPP");
-            
             var pixelHandle = new ProcessPixel
             {
                 ColorLookup = colorLookup,
@@ -106,7 +104,7 @@ namespace Conversion
             }
         }
         
-        //[BurstCompile]
+        [BurstCompile]
         private struct ProcessPixel : IJobParallelFor
         {
             [DeallocateOnJobCompletion] public NativeArray<Color32> ColorMap;

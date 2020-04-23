@@ -19,12 +19,15 @@
             <e p="CountriesLoad.cs" t="Include" />
             <e p="DefinitionsLoad.cs" t="Include" />
             <e p="ParseFile.cs" t="Include" />
+            <e p="PopsLoad.cs" t="Include" />
             <e p="ProvinceLoad.cs" t="Include" />
             <e p="RegionsLoad.cs" t="Include" />
             <e p="ToJson.cs" t="Include" />
           </e>
           <e p="Countries.cs" t="Include" />
           <e p="Goods.cs" t="Include" />
+          <e p="MarketMatrix.cs" t="Include" />
+          <e p="Population.cs" t="Include" />
           <e p="Provinces.cs" t="Include" />
           <e p="States.cs" t="Include" />
         </e>

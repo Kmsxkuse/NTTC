@@ -4,7 +4,9 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Conversion
 {
@@ -46,7 +48,7 @@ namespace Conversion
                                 cores.Add(tagLookup[(string) value]);
                                 continue;
                             case "trade_goods":
-                                //target.TradeGoods = goodsLookup[(string) value];
+                                target.TradeGoods = Random.Range(1, 4); // 1, 2, or 3.
                                 continue;
                             case "life_rating":
                                 target.LifeRating = int.Parse((string) value);
@@ -55,7 +57,6 @@ namespace Conversion
                     }
 
                     if (target.Owner == tagLookup["OCEAN"])
-                        // UNCOLONIZED
                         target.Owner = tagLookup["UNCOLONIZED"];
 
                     em.SetComponentData(provEntity, target);

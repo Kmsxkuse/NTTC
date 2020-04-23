@@ -19,43 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanUnlit.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanUnlit.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainUnlit.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainUnlit.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/colormap.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/colormap.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/colormap_water.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/colormap_water.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserSettings/BuildManagerSettings.asset" afterDir="false" />
+    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="Implemented terrain and ocean overlays.">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleSceneSettings.lighting" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleSceneSettings.lighting.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MapProv.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MapProv.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MapUnlit.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MapUnlit.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +43,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///AudioManager.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/UnifiedVariables.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/ReligionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/IdeologiesLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Population.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/CulturesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/GovernmentsLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CountryHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
@@ -87,12 +65,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Countries.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Goods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/EventsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/NationalValueLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/IssuesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/AdjacenciesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectSettings/AudioManager.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/TerrainLoad.cs" root0="SKIP_HIGHLIGHTING" />
@@ -134,14 +116,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
       </list>
     </option>
   </component>
@@ -218,8 +204,16 @@
       <workItem from="1587418083337" duration="30437000" />
       <workItem from="1587494649184" duration="82000" />
       <workItem from="1587509171478" duration="686000" />
-      <workItem from="1587594290705" duration="16548000" />
+      <workItem from="1587594290705" duration="22837000" />
     </task>
+    <task id="LOCAL-00001" summary="Implemented terrain and ocean overlays.">
+      <created>1587613898627</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587613898627</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -242,6 +236,8 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Implemented terrain and ocean overlays." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented terrain and ocean overlays." />
   </component>
   <component name="WindowStateProjectService">
     <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581732422767">
@@ -344,10 +340,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1581737790704" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587509241753">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587613900493">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587509241753" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587613900493" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1584672752048">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -368,24 +364,5 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1587443567549" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs</url>
-          <line>69</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" initialLine="65">
-            <startOffsets>
-              <option value="2628" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2673" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
