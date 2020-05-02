@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -45,14 +45,17 @@ namespace Conversion
             var countryTags = new Dictionary<string, Entity>();
             var countries = new List<string>();
             var countryPaths = new List<string>();
-            
+
             // Creating default countries.
             var target = em.CreateEntity(typeof(Country));
             em.SetComponentData(target, new Country {Color = new Color32(0, 191, 255, 255)});
             countryTags.Add("OCEAN", target);
+            em.SetName(target, "Country: Ocean"); // DEBUG
+            
             target = em.CreateEntity(typeof(Country));
             em.SetComponentData(target, new Country {Color = new Color32(255, 228, 181, 255)});
             countryTags.Add("UNCOLONIZED", target);
+            em.SetName(target, "Country: Uncolonized"); // DEBUG
 
             foreach (var rawCommonLine in File.ReadLines(Path.Combine(Application.streamingAssetsPath,
                 "Common", "countries.txt")))
@@ -82,7 +85,7 @@ namespace Conversion
                 var fileTree = new List<(string, object)>();
                 ParseFile.Main(Path.Combine(Application.streamingAssetsPath,
                     "common", targetFile), fileTree);
-                
+
                 var currentCountry = new Country();
 
                 foreach (var (key, value) in fileTree)
@@ -98,16 +101,18 @@ namespace Conversion
                 target = em.CreateEntity(typeof(Country));
                 em.SetComponentData(target, currentCountry);
                 countryTags.Add(tag, target);
+                em.SetName(target, "Country: " + Path.GetFileNameWithoutExtension(targetFile)); // DEBUG
             }
 
             return (countries, countryTags, countryPaths);
-            
+
             bool CommentDetector(string line, out string sliced)
             {
                 // Comment Detector. Will also lowercase everything. Throwing away comments.
                 sliced = line.ToLowerInvariant().Split(new[] {"#"}, StringSplitOptions.None)[0].Trim();
                 return sliced.Length == 0;
             }
+
             bool YesNoConverter(string word)
             {
                 switch (word.Trim())
@@ -120,6 +125,7 @@ namespace Conversion
                         throw new Exception("Unknown yes/no. " + word);
                 }
             }
+
             Color32 ParseColor32(string colorString)
             {
                 var subColor = Regex.Match(colorString, @"\d(.*)\d").Value

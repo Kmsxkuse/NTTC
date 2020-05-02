@@ -157,7 +157,7 @@ namespace Conversion
 
                 return output;
             }
-            
+
             bool CommentDetector(string line, out string sliced)
             {
                 // Comment Detector. Will also lowercase everything. Throwing away comments.

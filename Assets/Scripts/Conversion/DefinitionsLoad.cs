@@ -1,9 +1,10 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
- using Unity.Collections;
- using Unity.Entities;
- using UnityEngine;
+using System.Linq;
+using Unity.Collections;
+using Unity.Entities;
+using UnityEngine;
 
 namespace Conversion
 {
@@ -38,16 +39,17 @@ namespace Conversion
 
                 idLookup.Add(provNum, definedNames.Count);
                 colorLookup.Add(foundColor, definedNames.Count);
-                
+
                 var provEntity = em.CreateEntity(typeof(Province));
-                em.SetComponentData(provEntity, new Province{Index = definedNames.Count, Owner = oceanDefault});
+                em.SetComponentData(provEntity, new Province {Index = definedNames.Count, Owner = oceanDefault});
                 provEntityLookup.Add(provNum, provEntity);
-                
+
                 definedNames.Add(subStringed[4].Trim());
+                em.SetName(provEntity, "Province: " + definedNames.Last()); // DEBUG
             }
 
             return (definedNames, idLookup, provEntityLookup);
-            
+
             bool CommentDetector(string line, out string sliced)
             {
                 // Comment Detector. Will also lowercase everything. Throwing away comments.

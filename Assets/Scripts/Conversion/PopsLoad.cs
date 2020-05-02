@@ -1,68 +1,68 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
-public static class PopsLoad
+namespace Conversion
 {
-    public static void Main()
+    public static class PopsLoad
     {
-        var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-        
-        // HARDCODED!
-        var popIdentity = em.AddBuffer<MarketMatrix>(em.CreateEntity(typeof(MarketIdentity)));
-        // Good 1
-        popIdentity.Add(new MarketMatrix
+        public static BlobAssetReference<MarketMatrix> Main(Dictionary<string, Entity> tagLookup)
         {
-            Delta = 1,
-            Demand = 4,
-            Priority = 1
-        });
-        // Good 2
-        popIdentity.Add(new MarketMatrix
-        {
-            Delta = 1,
-            Demand = 2,
-            Priority = 2
-        });
-        // Good 3
-        popIdentity.Add(new MarketMatrix
-        {
-            Delta = 1,
-            Demand = 2,
-            Priority = 2
-        });
+            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
 
-        using (var provinces = 
-            em.CreateEntityQuery(typeof(Province)).ToEntityArray(Allocator.TempJob))
-        {
-            foreach (var province in provinces)
+            var pmi = MarketConvert.Main(JsonConvert.DeserializeObject<MarketJson>(
+                File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "Custom", "Agents", "Pop.json"))));
+
+            // DEBUG: 6 hardcoded!
+            using (var inventory = new NativeArray<Inventory>(6, Allocator.Temp))
+            using (var provinces =
+                em.CreateEntityQuery(typeof(Province), typeof(Cores)).ToEntityArray(Allocator.TempJob))
             {
-                var rand = Random.Range(3, 8); // 3 to 7 different types of pops.
-                var randomPop = new NativeArray<PopWrapper>(rand, Allocator.Temp);
-                for (var i = 0; i < rand; i++)
+                var uncolonized = tagLookup["UNCOLONIZED"];
+                foreach (var province in provinces)
                 {
-                    var pop = new Population
+                    // Ocean doesn't have cores. Or tagged province.
+                    if (em.GetComponentData<Province>(province).Owner == uncolonized)
+                        continue;
+
+                    var rand = Random.Range(3, 8); // 3 to 7 different types of pops.
+                    var randomPop = new NativeArray<PopWrapper>(rand, Allocator.Temp);
+                    for (var i = 0; i < rand; i++)
                     {
-                        Culture = i,
-                        Employment = 0,
-                        Quantity = Random.Range(300, 1500),
-                        Religion = 0,
-                        Satisfaction = 0,
-                        Wealth = 500
-                    };
+                        var targetPop = em.CreateEntity(typeof(Population), typeof(Ethnicity),
+                            typeof(Identity), typeof(Inventory), typeof(Wallet));
+                        em.SetComponentData(targetPop, new Population
+                        {
+                            Employment = 0,
+                            Quantity = Random.Range(300, 1500),
+                            Satisfaction = 0
+                        });
+                        em.SetComponentData(targetPop, new Ethnicity
+                        {
+                            Culture = i
+                        });
+                        em.SetComponentData(targetPop, new Identity
+                        {
+                            MarketIdentity = pmi
+                        });
+                        em.SetComponentData(targetPop, new Wallet
+                        {
+                            Wealth = Random.Range(500, 1000)
+                        });
+                        em.GetBuffer<Inventory>(targetPop).AddRange(inventory);
 
-                    var targetPop = em.CreateEntity(typeof(Population));
-                    em.SetComponentData(targetPop, pop);
-                    randomPop[i] = targetPop;
+                        randomPop[i] = targetPop;
+                    }
 
-                    // HARDCODED 3 types of goods!
+                    em.AddBuffer<PopWrapper>(province).AddRange(randomPop);
+                    randomPop.Dispose();
                 }
+            }
 
-                em.AddBuffer<PopWrapper>(province).AddRange(randomPop);
-                randomPop.Dispose();
-            }    
+            return pmi;
         }
     }
 }

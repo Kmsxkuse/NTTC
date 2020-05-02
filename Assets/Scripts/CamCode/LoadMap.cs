@@ -4,16 +4,15 @@ namespace CamCode
 {
     public class LoadMap : MonoBehaviour
     {
-        public GameObject MainMap;
-    
         public static Texture2D Texture;
-        
+        public GameObject MainMap;
+
         private void Start()
         {
             var meshRenderer = MainMap.GetComponent<MeshRenderer>();
             var material = meshRenderer.material;
             material.mainTexture = Texture;
-            
+
             // Duplicating map placing it to the right.
             var subMap = Instantiate(MainMap, MainMap.transform);
             subMap.transform.localPosition = Vector3.right;

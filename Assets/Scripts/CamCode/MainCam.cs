@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -10,18 +9,11 @@ namespace CamCode
 {
     public class MainCam : MonoBehaviour
     {
-        public Material MapMaterial, BlendMaterial;
-
         public static Transform MainTransform, SubTransform;
         public static Bounds Bounds;
         public static RenderTexture TerrainTexture, OceanTexture;
         public static Camera TerrainCam, OceanCam;
 
-        private Camera _camera;
-        private ComputeBuffer _provLookup;
-        private EntityManager _em;
-        private float _orthographicSize;
-        
         private static readonly int ProvColorBuffer = Shader.PropertyToID("floatBuffer");
         private static readonly int CountryBorderToggle = Shader.PropertyToID("countryBorderToggle");
         private static readonly int SecondTex = Shader.PropertyToID("_SecondTex");
@@ -29,10 +21,16 @@ namespace CamCode
         private static readonly int SkipDirection = Shader.PropertyToID("_SkipDirection");
         private static readonly int BlendStrength = Shader.PropertyToID("_BlendStrength");
 
-        private Vector2 _movement;
+        private Camera _camera;
         private Vector3 _delta, _dragOrigin;
+        private EntityManager _em;
         private bool _handOver, _orthoChanged, _dragLock;
+
+        private Vector2 _movement;
+        private float _orthographicSize;
+        private ComputeBuffer _provLookup;
         private float _scrollDirection;
+        public Material MapMaterial, BlendMaterial;
 
         private void Start()
         {
@@ -51,19 +49,20 @@ namespace CamCode
                     var color = _em.GetComponentData<Country>(provData.Owner).Color;
                     provTable[provData.Index] = new float4(color.r, color.g, color.b, color.a);
                 }
-                
+
                 _provLookup.SetData(provTable);
             }
+
             // Ocean tiles special colors. Defined in Countries Load.
-            BlendMaterial.SetVector(SkipColor, (Color) (new Color32(0, 191, 255, 255)));
+            BlendMaterial.SetVector(SkipColor, (Color) new Color32(0, 191, 255, 255));
         }
 
         private void Update()
         {
             _orthographicSize = _camera.orthographicSize;
-            
+
             var oldPosition = MainTransform.position;
-            
+
             // Looper code. Horizontal teleportation.
             if (oldPosition.x < _orthographicSize * _camera.aspect - Bounds.max.x * 0.75)
             {
@@ -84,29 +83,29 @@ namespace CamCode
                 var oldMain = MainTransform;
                 MainTransform = SubTransform;
                 SubTransform = oldMain;
-                
+
                 MainTransform.SetParent(null);
                 SubTransform.SetParent(MainTransform);
-                
+
                 _handOver = false;
-            
+
                 oldPosition = MainTransform.position;
             }
-            
+
             // Movement code.
             if (_dragLock)
                 _delta = _dragOrigin - _camera.ScreenToWorldPoint(Input.mousePosition);
-            
+
             if (_orthoChanged)
             {
                 _movement /= _orthographicSize;
                 _camera.orthographicSize = TerrainCam.orthographicSize = OceanCam.orthographicSize =
                     _orthographicSize = math.clamp(_scrollDirection + _orthographicSize, 0.2f, 5f);
                 _movement *= _orthographicSize;
-                
+
                 _orthoChanged = false;
             }
-            
+
             MainTransform.position = new Vector3
             (
                 // Subtract as the map is moving, not the camera.
@@ -114,7 +113,7 @@ namespace CamCode
                 math.clamp(oldPosition.y - (_dragLock ? _delta.y : _movement.y),
                     _orthographicSize - Bounds.max.y, Bounds.max.y - _orthographicSize)
             );
-            
+
             if (_dragLock)
                 _dragOrigin = _camera.ScreenToWorldPoint(Input.mousePosition);
         }
@@ -138,7 +137,9 @@ namespace CamCode
                 _orthoChanged = true;
             }
             else if (callbackContext.canceled)
+            {
                 _scrollDirection = 0;
+            }
         }
 
         public void Drag(InputAction.CallbackContext callbackContext)
@@ -149,9 +150,11 @@ namespace CamCode
                 _dragOrigin = _camera.ScreenToWorldPoint(Input.mousePosition);
             }
             else if (callbackContext.canceled)
+            {
                 _dragLock = false;
+            }
         }
-        
+
         private void OnDestroy()
         {
             _provLookup.Dispose();
@@ -166,10 +169,9 @@ namespace CamCode
 
             var terrainTemp = RenderTexture.GetTemporary(src.descriptor);
             var oceanTemp = RenderTexture.GetTemporary(src.descriptor);
-            
+
             // Province coloring.
             Graphics.Blit(src, terrainTemp, MapMaterial);
-            
             // Overlay combination. Fuck Unity.
             // Terrain
             BlendMaterial.SetTexture(SecondTex, TerrainTexture);
@@ -181,7 +183,7 @@ namespace CamCode
             BlendMaterial.SetFloat(SkipDirection, 0);
             BlendMaterial.SetFloat(BlendStrength, 0.75f);
             Graphics.Blit(oceanTemp, dest, BlendMaterial);
-            
+
             terrainTemp.Release();
             oceanTemp.Release();
         }

@@ -12,21 +12,23 @@ namespace Conversion
 {
     public static class ProvinceLoad
     {
-        public static void Main(IReadOnlyDictionary<int, Entity> provEntityLookup, IReadOnlyDictionary<string, Entity> tagLookup)
+        public static void Main(IReadOnlyDictionary<int, Entity> provEntityLookup, IReadOnlyDictionary<string, Entity> tagLookup,
+            BlobAssetReference<MarketMatrix>[] marketIdentities)
         {
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
 
             var provinces = Directory.GetFiles(Path.Combine(Application.streamingAssetsPath, "history", "provinces"),
                 "*.txt", SearchOption.AllDirectories);
             using (var cores = new NativeList<Cores>(Allocator.Temp))
+            {
                 foreach (var province in provinces)
                 {
                     cores.Clear();
-                
+
                     var fileTree = new List<(string, object)>();
                     ParseFile.Main(province, fileTree);
-            
-                    var idString = Regex.Match(Path.GetFileNameWithoutExtension(province) 
+
+                    var idString = Regex.Match(Path.GetFileNameWithoutExtension(province)
                                                ?? throw new Exception("Invalid province file path, null path."), @"\d+").Value;
                     if (!int.TryParse(idString, out var provId))
                         throw new Exception("Invalid province file name. Must include province ID. " + province);
@@ -35,7 +37,6 @@ namespace Conversion
                     var target = em.GetComponentData<Province>(provEntity);
 
                     foreach (var (key, value) in fileTree)
-                    {
                         switch (key)
                         {
                             case "owner":
@@ -48,13 +49,37 @@ namespace Conversion
                                 cores.Add(tagLookup[(string) value]);
                                 continue;
                             case "trade_goods":
-                                target.TradeGoods = Random.Range(1, 4); // 1, 2, or 3.
+                                var provFactory = em.CreateEntity(typeof(Factory), typeof(Wallet),
+                                    typeof(Employee), typeof(Inventory), typeof(Identity));
+                                em.SetComponentData(provFactory, new Factory
+                                {
+                                    MaximumEmployment = -1 // Infinite employment.
+                                });
+
+                                var rand = Random.Range(0f, 10f);
+                                // 1 (50%), 2 (30%), or 3(20%).
+                                var tradeGood = (int) math.ceil(math.pow(rand, 3) /
+                                    600f - math.pow(rand, 2) / 200f + 11 * rand / 60);
+
+                                switch (tradeGood)
+                                {
+                                    case 1:
+                                        em.SetComponentData<Identity>(provFactory, marketIdentities[0]);
+                                        break;
+                                    case 2:
+                                        em.SetComponentData<Identity>(provFactory, marketIdentities[1]);
+                                        break;
+                                    case 3:
+                                        em.SetComponentData<Identity>(provFactory, marketIdentities[2]);
+                                        break;
+                                }
+
+                                em.AddBuffer<FactoryLink>(provEntity).Add(provFactory);
                                 continue;
                             case "life_rating":
                                 target.LifeRating = int.Parse((string) value);
                                 continue;
                         }
-                    }
 
                     if (target.Owner == tagLookup["OCEAN"])
                         target.Owner = tagLookup["UNCOLONIZED"];
@@ -62,6 +87,7 @@ namespace Conversion
                     em.SetComponentData(provEntity, target);
                     em.AddBuffer<Cores>(provEntity).AddRange(cores);
                 }
+            }
         }
     }
 }

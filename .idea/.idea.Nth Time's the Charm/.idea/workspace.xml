@@ -19,19 +19,161 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="Implemented terrain and ocean overlays.">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs.meta" afterDir="false" />
+    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="Downgrade to 2020.1 Beta.">
+      <change afterPath="$PROJECT_DIR$/.collabignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.West.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.West.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bank.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bank.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/provinces.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/provinces.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EMPTY.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EMPTY.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Goods.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Goods.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Population.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/continent.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/continent.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/countryNames.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/countryNames.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/cultures.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/cultures.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/definition.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/definition.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/region.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/region.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/religion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/religion.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/terrain.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/terrain.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/test.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,49 +185,53 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///AudioManager.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/UnifiedVariables.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/ReligionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/IdeologiesLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Population.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Provinces.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/ProvincePopulationLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Countries.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/EventsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/NationalValueLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/IssuesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/AdjacenciesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectSettings/AudioManager.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/TerrainLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/FileUnpacker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/LoadMethods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/ProvinceHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/ContinentLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/LoadMain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/UnifiedVariables.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/ReligionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/IdeologiesLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/CulturesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/GovernmentsLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CountryHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/MapLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/LoadGeneric.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/GoodsLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/DataBox.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/BuildingsLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Provinces.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CrimeLoad.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/ProvincePopulationLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/States.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Countries.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Goods.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Five.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bank.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/EventsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/NationalValueLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/IssuesLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/AdjacenciesLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ProjectSettings/AudioManager.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/TerrainLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/FileUnpacker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/LoadMethods.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/ProvinceHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/ContinentLoad.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/LoadMain.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -107,27 +253,35 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadMethods.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/FileUnpacker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/UnifiedVariables.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Goods.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/CameraMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Countries.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Goods.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/GoodsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Agent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bank.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" />
       </list>
     </option>
   </component>
@@ -205,6 +359,18 @@
       <workItem from="1587494649184" duration="82000" />
       <workItem from="1587509171478" duration="686000" />
       <workItem from="1587594290705" duration="22837000" />
+      <workItem from="1587670713563" duration="12602000" />
+      <workItem from="1587698344404" duration="905000" />
+      <workItem from="1587701342314" duration="841000" />
+      <workItem from="1587704280453" duration="7350000" />
+      <workItem from="1587766536670" duration="12388000" />
+      <workItem from="1587834683755" duration="595000" />
+      <workItem from="1587934898405" duration="5929000" />
+      <workItem from="1588009759610" duration="1784000" />
+      <workItem from="1588369975645" duration="45000" />
+      <workItem from="1588370278120" duration="608000" />
+      <workItem from="1588375192981" duration="12590000" />
+      <workItem from="1588438468379" duration="4733000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented terrain and ocean overlays.">
       <created>1587613898627</created>
@@ -213,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587613898627</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Downgrade to 2020.1 Beta.">
+      <created>1587670755810</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587670755810</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -237,25 +410,30 @@
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Implemented terrain and ocean overlays." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented terrain and ocean overlays." />
+    <MESSAGE value="Downgrade to 2020.1 Beta." />
+    <option name="LAST_COMMIT_MESSAGE" value="Downgrade to 2020.1 Beta." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587705629319">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587705629319" />
     <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581732422767">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="640" y="276" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1581732422767" />
-    <state x="714" y="389" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1584229967793">
+    <state x="714" y="389" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1588381248064">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="714" y="389" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1080@0.0.1920.1080" timestamp="1584229967793" />
+    <state x="714" y="389" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1080@0.0.1920.1080" timestamp="1588381248064" />
     <state width="411" height="646" key="DebuggerActiveHint" timestamp="1583553891146">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="411" height="646" key="DebuggerActiveHint/0.0.1920.1080@0.0.1920.1080" timestamp="1583553891146" />
-    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1584672752048">
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog" timestamp="1587778013130">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584672752048" />
+    <state x="92" y="92" width="1736" height="896" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587778013130" />
     <state x="809" y="441" key="Github.ShareDialog" timestamp="1587448341504">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -264,74 +442,74 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="719" y="164" key="Github.UntrackedFilesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587448424989" />
-    <state width="1877" height="387" key="GridCell.Tab.0.bottom" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.0.bottom" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.0.center" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.0.center" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.0.left" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.0.left" timestamp="1587766397302">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.0.right" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397302" />
+    <state width="1877" height="387" key="GridCell.Tab.0.right" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.1.bottom" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.1.bottom" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.1.center" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.1.center" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.1.left" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.1.left" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.1.right" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.1.right" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.2.bottom" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.2.bottom" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.2.center" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.2.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.2.center" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.2.left" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.2.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.2.left" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.2.right" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.2.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.2.right" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.3.bottom" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.2.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.3.bottom" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.3.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.3.center" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.3.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.3.center" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.3.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.3.left" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.3.center/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.3.left" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.3.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state width="1877" height="387" key="GridCell.Tab.3.right" timestamp="1587449766951">
+    <state width="1877" height="387" key="GridCell.Tab.3.left/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state width="1877" height="387" key="GridCell.Tab.3.right" timestamp="1587766397306">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="387" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587449766951" />
-    <state x="670" y="147" key="RiderGenerateDialog" timestamp="1584240170249">
+    <state width="1877" height="387" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
+    <state x="670" y="147" key="RiderGenerateDialog" timestamp="1588377939355">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="670" y="147" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584240170249" />
+    <state x="670" y="147" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588377939355" />
     <state x="461" y="183" width="1158" height="809" key="SettingsEditor" timestamp="1587448290572">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -340,14 +518,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1581737790704" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587613900493">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587670775878">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587613900493" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587670775878" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1584672752048">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584672752048" />
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1587701802204">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1587701802204" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.RecentChangeDialog" timestamp="1584672152238">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -360,9 +542,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="639" y="144" width="758" height="792" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1581737454358" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1587443567549">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1588376122473">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1587443567549" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1588376122473" />
   </component>
 </project>

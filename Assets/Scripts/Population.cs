@@ -1,18 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.Entities;
-using UnityEngine;
+﻿using Unity.Entities;
 
 public struct PopWrapper : IBufferElementData
 {
     public Entity Population;
-    public static implicit operator PopWrapper(Entity e) => new PopWrapper {Population = e};
+
+    public static implicit operator PopWrapper(Entity e)
+    {
+        return new PopWrapper {Population = e};
+    }
 }
 
 public struct Population : IComponentData
 {
     // Top down connection between workplace and employees.
-    public int Employment, Religion, Culture, Quantity;
-    public float Wealth, Satisfaction;
-    public Entity MarketIdentity;
+    public int Employment, Quantity;
+    public float Satisfaction;
+}
+
+public struct Ethnicity : IComponentData
+{
+    public int Culture, Religion;
 }
