@@ -12,7 +12,7 @@ public struct Province : IComponentData
 {
     public int Index, LifeRating;
 
-    public Entity Owner, Controller;
+    public Entity Owner, Controller, TradeGood;
 
     public BlobAssetReference<ProvToState> ProvToState;
     //public NativeString32 Name;

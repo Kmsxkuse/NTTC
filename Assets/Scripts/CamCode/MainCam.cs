@@ -38,8 +38,8 @@ namespace CamCode
             _em = World.DefaultGameObjectInjectionWorld.EntityManager;
 
             // Default political map mode.
-            using (var provinces =
-                _em.CreateEntityQuery(typeof(Province)).ToEntityArray(Allocator.TempJob))
+            using (var provinces = _em.CreateEntityQuery(typeof(Province))
+                .ToEntityArray(Allocator.TempJob))
             {
                 _provLookup = new ComputeBuffer(provinces.Length, 16, ComputeBufferType.Structured);
 

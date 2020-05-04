@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using CamCode;
+using Market;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
@@ -84,13 +85,19 @@ namespace Conversion
                 StateLookup = stateLookup
             }.Schedule(colorMap.Length, 32);
 
-            var factories = AgentsLoad.Main();
+            colorLookup.Dispose(pixelHandle);
+            stateLookup.Dispose(pixelHandle);
+
+            var (factories, maxEmploy) = AgentsLoad.Main();
             foreach (var blobAssetReference in factories)
                 BlobAssetReferences.Enqueue(blobAssetReference);
 
-            ProvinceLoad.Main(provEntityLookup, tagLookup, factories);
+            ProvinceLoad.Main(provEntityLookup, tagLookup, factories, maxEmploy, provToStateReference);
             // Pops load outputs a blob asset reference. Just inlining the two calls.
-            BlobAssetReferences.Enqueue(PopsLoad.Main(tagLookup));
+            BlobAssetReferences.Enqueue(PopsLoad.Main(provToStateReference));
+            
+            // DEBUG
+            MarketSystem.SetDebugValues(factories, maxEmploy);
 
             pixelHandle.Complete();
 
@@ -98,10 +105,8 @@ namespace Conversion
             map.Apply();
 
             LoadMap.Texture = map;
-
+            
             idMap.Dispose();
-            colorLookup.Dispose();
-            stateLookup.Dispose();
 
             Texture2D LoadPng(string filePath)
             {

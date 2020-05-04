@@ -19,161 +19,31 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="Downgrade to 2020.1 Beta.">
-      <change afterPath="$PROJECT_DIR$/.collabignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.West.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.West.dll.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/I18N.dll.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bank.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Bank.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/TMP Settings.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro.cginc.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.json.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/provinces.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/provinces.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/indexLayout.xml" afterDir="false" />
+    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="Add speed controller. Begin data foundations for market system.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem.inputsettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EMPTY.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/EMPTY.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Goods.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Goods.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Population.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/States.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/continent.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/continent.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/countryNames.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/countryNames.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/cultures.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/cultures.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/definition.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/definition.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/region.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/region.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/religion.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/religion.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/terrain.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/terrain.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/JsonData/test.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,12 +65,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Countries.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/EventsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.10.0-preview.6/Unity.Entities.Tests/BlobificationTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/NationalValueLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/IssuesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/AdjacenciesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/AudioManager.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/TerrainLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.1.0/Unity.Mathematics/random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/FileUnpacker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/LoadMethods.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/ProvinceHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
@@ -221,24 +93,29 @@
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/BuildingsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CrimeLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Five.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Six.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bank.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Four.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Three.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/One.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Two.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@0.8.0-preview.5/Unity.Collections/NativeHashMap.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Pop.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion.cs" />
-        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Loading/MapLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/BuildingsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CrimeLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadGeneric.cs" />
@@ -255,7 +132,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/UnifiedVariables.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ParseFile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/CameraMove.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Countries.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/TerrainCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" />
@@ -264,24 +140,33 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Goods.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/GoodsLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Agent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bank.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ToJson.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Pop.json" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/One.json" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Three.json" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Two.json" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Six.json" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Four.json" />
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Five.json" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Countries.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
+        <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.1.0/Unity.Mathematics/random.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" />
       </list>
     </option>
   </component>
@@ -370,7 +255,8 @@
       <workItem from="1588369975645" duration="45000" />
       <workItem from="1588370278120" duration="608000" />
       <workItem from="1588375192981" duration="12590000" />
-      <workItem from="1588438468379" duration="4733000" />
+      <workItem from="1588438468379" duration="27806000" />
+      <workItem from="1588536895276" duration="15111000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented terrain and ocean overlays.">
       <created>1587613898627</created>
@@ -386,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587670755810</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add speed controller. Begin data foundations for market system.">
+      <created>1588447057492</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588447057492</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -411,7 +304,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Implemented terrain and ocean overlays." />
     <MESSAGE value="Downgrade to 2020.1 Beta." />
-    <option name="LAST_COMMIT_MESSAGE" value="Downgrade to 2020.1 Beta." />
+    <MESSAGE value="Add speed controller. Begin data foundations for market system." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add speed controller. Begin data foundations for market system." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587705629319">
@@ -518,10 +412,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080@0.0.1920.1080" timestamp="1581737790704" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587670775878">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1588447059937">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1587670775878" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1588447059937" />
     <state x="92" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1584672752048">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

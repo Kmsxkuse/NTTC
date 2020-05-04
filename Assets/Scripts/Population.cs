@@ -13,11 +13,26 @@ public struct PopWrapper : IBufferElementData
 public struct Population : IComponentData
 {
     // Top down connection between workplace and employees.
-    public int Employment, Quantity;
-    public float Satisfaction;
+    public int Quantity;
+    //public float Satisfaction;
+}
+
+public struct Employer : IComponentData
+{
+    public Entity Factory;
+
+    public static implicit operator Employer(Entity e)
+    {
+        return new Employer {Factory = e};
+    }
 }
 
 public struct Ethnicity : IComponentData
 {
     public int Culture, Religion;
+}
+
+public struct Location : IComponentData
+{
+    public Entity Province, State;
 }

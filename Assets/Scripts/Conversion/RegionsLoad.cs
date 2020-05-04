@@ -69,7 +69,7 @@ namespace Conversion
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
             for (var stateIndex = 0; stateIndex < stateIdNames.Count; stateIndex++)
             {
-                var stateEntity = em.CreateEntity(typeof(State));
+                var stateEntity = em.CreateEntity(typeof(State), typeof(FactoryWrapper));
                 em.SetComponentData(stateEntity, new State(stateIndex, stateToProvReference));
                 em.SetName(stateEntity, "State: " + stateIdNames[stateIndex]); //DEBUG
                 

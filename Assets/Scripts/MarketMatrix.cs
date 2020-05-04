@@ -32,6 +32,8 @@ public struct MarketJson
 {
     public float[] Deltas, Demand;
 
+    public int MaximumEmployment;
+
     [JsonProperty(NullValueHandling = NullValueHandling.Ignore)] [CanBeNull]
     public int[] Priority;
 }

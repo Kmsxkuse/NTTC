@@ -25,3 +25,8 @@ public struct PartialOwnership : IComponentData
     // For multiple countries owning one state.
     // Empty tag. Possible dynamic buffer of countries which own this state attached?
 }
+
+public struct Inhabited : IComponentData
+{
+    // Tag for regions that have at least one owned province.
+}

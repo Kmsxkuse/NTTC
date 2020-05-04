@@ -13,7 +13,7 @@ namespace Conversion
     public static class ProvinceLoad
     {
         public static void Main(IReadOnlyDictionary<int, Entity> provEntityLookup, IReadOnlyDictionary<string, Entity> tagLookup,
-            BlobAssetReference<MarketMatrix>[] marketIdentities)
+            BlobAssetReference<MarketMatrix>[] marketIdentities, int[] maxEmploy, BlobAssetReference<ProvToState> provToState)
         {
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
 
@@ -35,12 +35,15 @@ namespace Conversion
 
                     var provEntity = provEntityLookup[provId];
                     var target = em.GetComponentData<Province>(provEntity);
+                    ref var state = ref provToState.Value.Lookup[target.Index];
 
                     foreach (var (key, value) in fileTree)
                         switch (key)
                         {
                             case "owner":
                                 target.Owner = tagLookup[(string) value];
+                                if (!em.HasComponent<Inhabited>(state))
+                                    em.AddComponent(state, typeof(Inhabited));
                                 continue;
                             case "controller":
                                 target.Controller = tagLookup[(string) value];
@@ -50,31 +53,19 @@ namespace Conversion
                                 continue;
                             case "trade_goods":
                                 var provFactory = em.CreateEntity(typeof(Factory), typeof(Wallet),
-                                    typeof(Employee), typeof(Inventory), typeof(Identity));
-                                em.SetComponentData(provFactory, new Factory
-                                {
-                                    MaximumEmployment = -1 // Infinite employment.
-                                });
+                                    typeof(Employee), typeof(Inventory), typeof(Identity), typeof(RgoGood));
 
                                 var rand = Random.Range(0f, 10f);
                                 // 1 (50%), 2 (30%), or 3(20%).
                                 var tradeGood = (int) math.ceil(math.pow(rand, 3) /
                                     600f - math.pow(rand, 2) / 200f + 11 * rand / 60);
-
-                                switch (tradeGood)
+                                em.SetComponentData(provFactory, new Factory
                                 {
-                                    case 1:
-                                        em.SetComponentData<Identity>(provFactory, marketIdentities[0]);
-                                        break;
-                                    case 2:
-                                        em.SetComponentData<Identity>(provFactory, marketIdentities[1]);
-                                        break;
-                                    case 3:
-                                        em.SetComponentData<Identity>(provFactory, marketIdentities[2]);
-                                        break;
-                                }
+                                    MaximumEmployment = maxEmploy[tradeGood - 1] // -1 = infinite employment.
+                                });
+                                em.SetComponentData<Identity>(provFactory, marketIdentities[tradeGood - 1]);
 
-                                em.AddBuffer<FactoryLink>(provEntity).Add(provFactory);
+                                target.TradeGood = provFactory;
                                 continue;
                             case "life_rating":
                                 target.LifeRating = int.Parse((string) value);

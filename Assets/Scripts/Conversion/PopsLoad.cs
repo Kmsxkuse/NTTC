@@ -9,7 +9,7 @@ namespace Conversion
 {
     public static class PopsLoad
     {
-        public static BlobAssetReference<MarketMatrix> Main(Dictionary<string, Entity> tagLookup)
+        public static BlobAssetReference<MarketMatrix> Main(BlobAssetReference<ProvToState> provToState)
         {
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
 
@@ -19,26 +19,20 @@ namespace Conversion
             // DEBUG: 6 hardcoded!
             using (var inventory = new NativeArray<Inventory>(6, Allocator.Temp))
             using (var provinces =
-                em.CreateEntityQuery(typeof(Province), typeof(Cores)).ToEntityArray(Allocator.TempJob))
+                // Ocean doesn't have cores. Or tagged province.
+                em.CreateEntityQuery(typeof(Province), typeof(Cores), ComponentType.Exclude<OceanTag>(),
+                    ComponentType.Exclude<UncolonizedTag>()).ToEntityArray(Allocator.TempJob))
             {
-                var uncolonized = tagLookup["UNCOLONIZED"];
                 foreach (var province in provinces)
                 {
-                    // Ocean doesn't have cores. Or tagged province.
-                    if (em.GetComponentData<Province>(province).Owner == uncolonized)
-                        continue;
-
                     var rand = Random.Range(3, 8); // 3 to 7 different types of pops.
-                    var randomPop = new NativeArray<PopWrapper>(rand, Allocator.Temp);
                     for (var i = 0; i < rand; i++)
                     {
                         var targetPop = em.CreateEntity(typeof(Population), typeof(Ethnicity),
-                            typeof(Identity), typeof(Inventory), typeof(Wallet));
+                            typeof(Identity), typeof(Inventory), typeof(Wallet), typeof(Location));
                         em.SetComponentData(targetPop, new Population
                         {
-                            Employment = 0,
-                            Quantity = Random.Range(300, 1500),
-                            Satisfaction = 0
+                            Quantity = Random.Range(300, 700)
                         });
                         em.SetComponentData(targetPop, new Ethnicity
                         {
@@ -52,13 +46,13 @@ namespace Conversion
                         {
                             Wealth = Random.Range(500, 1000)
                         });
+                        em.SetComponentData(targetPop, new Location
+                        {
+                            Province = province,
+                            State = provToState.Value.Lookup[em.GetComponentData<Province>(province).Index]
+                        });
                         em.GetBuffer<Inventory>(targetPop).AddRange(inventory);
-
-                        randomPop[i] = targetPop;
                     }
-
-                    em.AddBuffer<PopWrapper>(province).AddRange(randomPop);
-                    randomPop.Dispose();
                 }
             }
 

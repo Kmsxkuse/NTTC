@@ -47,12 +47,12 @@ namespace Conversion
             var countryPaths = new List<string>();
 
             // Creating default countries.
-            var target = em.CreateEntity(typeof(Country));
+            var target = em.CreateEntity(typeof(Country), typeof(OceanTag));
             em.SetComponentData(target, new Country {Color = new Color32(0, 191, 255, 255)});
             countryTags.Add("OCEAN", target);
             em.SetName(target, "Country: Ocean"); // DEBUG
             
-            target = em.CreateEntity(typeof(Country));
+            target = em.CreateEntity(typeof(Country), typeof(UncolonizedTag));
             em.SetComponentData(target, new Country {Color = new Color32(255, 228, 181, 255)});
             countryTags.Add("UNCOLONIZED", target);
             em.SetName(target, "Country: Uncolonized"); // DEBUG
