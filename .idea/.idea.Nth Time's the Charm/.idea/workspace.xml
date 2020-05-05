@@ -19,31 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="Add speed controller. Begin data foundations for market system.">
+    <list default="true" id="49e354ae-9004-4b4f-9a50-881eb014c889" name="Default Changelist" comment="DOES NOT WORK: Implemented random spawning of factories in all inhabited states.&#10;CRITICAL BUG: Distribution of employment results in Unity crashing to desktop.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Nth Time's the Charm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Population.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Four.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/One.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Pop.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Six.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Three.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Two.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.10.0-preview.6/Unity.Entities.Tests/BlobificationTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/NationalValueLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.10.0-preview.6/Unity.Entities/CodeGeneratedJobForEach/LambdaJobDescription.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/IssuesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/AdjacenciesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/AudioManager.asset" root0="FORCE_HIGHLIGHTING" />
@@ -84,15 +70,19 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/IdeologiesLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Conversion/CulturesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7C074160-DD1A-4D91-9B45-B6E4C27A3BAC/92/99bd06cf/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/GovernmentsLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CountryHistoryLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/MapLoad.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///MarketSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/LoadGeneric.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/GoodsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/DataBox.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23E371E9-4227-42B6-A92A-9F9BFB37A189/e3/4351a811/Vector3Int.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/BuildingsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/Todos/CrimeLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Five.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/23E371E9-4227-42B6-A92A-9F9BFB37A189/21/3c05b24d/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Six.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bank.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Four.json" root0="FORCE_HIGHLIGHTING" />
@@ -100,6 +90,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/One.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Custom/Agents/Two.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/OceanCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.10.0-preview.6/Unity.Entities/Types/Entity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" root0="FORCE_HIGHLIGHTING" />
@@ -154,18 +145,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Countries.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
         <option value="$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.1.0/Unity.Mathematics/random.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/RegionsLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" />
       </list>
     </option>
@@ -256,7 +247,8 @@
       <workItem from="1588370278120" duration="608000" />
       <workItem from="1588375192981" duration="12590000" />
       <workItem from="1588438468379" duration="27806000" />
-      <workItem from="1588536895276" duration="15111000" />
+      <workItem from="1588536895276" duration="26655000" />
+      <workItem from="1588632371540" duration="4565000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented terrain and ocean overlays.">
       <created>1587613898627</created>
@@ -279,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588447057492</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="DOES NOT WORK: Implemented random spawning of factories in all inhabited states.&#10;CRITICAL BUG: Distribution of employment results in Unity crashing to desktop.">
+      <created>1588558432767</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588558432767</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -305,7 +304,8 @@
     <MESSAGE value="Implemented terrain and ocean overlays." />
     <MESSAGE value="Downgrade to 2020.1 Beta." />
     <MESSAGE value="Add speed controller. Begin data foundations for market system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add speed controller. Begin data foundations for market system." />
+    <MESSAGE value="DOES NOT WORK: Implemented random spawning of factories in all inhabited states.&#10;CRITICAL BUG: Distribution of employment results in Unity crashing to desktop." />
+    <option name="LAST_COMMIT_MESSAGE" value="DOES NOT WORK: Implemented random spawning of factories in all inhabited states.&#10;CRITICAL BUG: Distribution of employment results in Unity crashing to desktop." />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587705629319">
@@ -400,10 +400,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="387" key="GridCell.Tab.3.right/0.0.1920.1080@0.0.1920.1080" timestamp="1587766397306" />
-    <state x="670" y="147" key="RiderGenerateDialog" timestamp="1588377939355">
+    <state x="670" y="147" key="RiderGenerateDialog" timestamp="1588570019821">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="670" y="147" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588377939355" />
+    <state x="670" y="147" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1588570019821" />
     <state x="461" y="183" width="1158" height="809" key="SettingsEditor" timestamp="1587448290572">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -436,9 +436,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="639" y="144" width="758" height="792" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1581737454358" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1588376122473">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1588563476343">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1588376122473" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1588563476343" />
   </component>
 </project>

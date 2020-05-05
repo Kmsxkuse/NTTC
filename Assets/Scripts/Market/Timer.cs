@@ -24,7 +24,7 @@ namespace Market
             
             if (incrementCount == -1)
                 incrementCount = 64;
-            else if (incrementCount > 2)
+            else if (incrementCount > 1)
                 incrementCount /= 2;
             SetSpeedText();
         }

@@ -2,17 +2,7 @@
 
 public struct Factory : IComponentData
 {
-    public int MaximumEmployment;
-}
-
-public struct Employee : IBufferElementData
-{
-    public Entity Pop;
-
-    public static implicit operator Employee(Entity e)
-    {
-        return new Employee {Pop = e};
-    }
+    public int MaximumEmployment, TotalEmployed;
 }
 
 public struct FactoryWrapper : IBufferElementData

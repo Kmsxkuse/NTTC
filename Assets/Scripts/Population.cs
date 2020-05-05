@@ -1,4 +1,6 @@
-﻿using Unity.Entities;
+﻿using System;
+using Unity.Entities;
+using UnityEngine;
 
 public struct PopWrapper : IBufferElementData
 {
@@ -13,18 +15,8 @@ public struct PopWrapper : IBufferElementData
 public struct Population : IComponentData
 {
     // Top down connection between workplace and employees.
-    public int Quantity;
+    public int Quantity, Employed;
     //public float Satisfaction;
-}
-
-public struct Employer : IComponentData
-{
-    public Entity Factory;
-
-    public static implicit operator Employer(Entity e)
-    {
-        return new Employer {Factory = e};
-    }
 }
 
 public struct Ethnicity : IComponentData
@@ -35,4 +27,10 @@ public struct Ethnicity : IComponentData
 public struct Location : IComponentData
 {
     public Entity Province, State;
+}
+
+public struct PopEmployment : IBufferElementData
+{
+    public Entity Factory;
+    public int Employed;
 }

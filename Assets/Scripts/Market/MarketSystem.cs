@@ -15,7 +15,7 @@ namespace Market
         private static NativeArray<Entity> _debugFactories;
         private static int _incrementCount = -1;
 
-        private int _skipCounter, _totalCounter;
+        private int _skipCounter, _totalCounter, _popNumber;
         private EndSimulationEntityCommandBufferSystem _commandBufferSystem;
 
         private bool _initialization = true;
@@ -33,16 +33,24 @@ namespace Market
             _skipCounter = 0;
             TickText.text = (_totalCounter++).ToString();
 
+            _popNumber = EntityManager.CreateEntityQuery(typeof(Population)).CalculateEntityCount();
+
             if (_initialization)
             {
                 _initialization = false;
                 DebugSpawnFactories();
             }
             
+            ProcessEmployment();
+            //PopMergeByProvince();
+
+            _commandBufferSystem.AddJobHandleForProducer(Dependency);
+        }
+
+        private void ProcessEmployment()
+        {
             // Organize pops into multi hash map by state
-            var popsByState = new NativeMultiHashMap<Entity, Entity>(
-                EntityManager.CreateEntityQuery(typeof(Population)).CalculateEntityCount(),
-                Allocator.TempJob);
+            var popsByState = new NativeMultiHashMap<Entity, Entity>(_popNumber, Allocator.TempJob);
 
             var pbsInput = popsByState.AsParallelWriter();
             Entities
@@ -51,64 +59,100 @@ namespace Market
                 {
                     pbsInput.Add(location.State, entity);
                 }).WithBurst().ScheduleParallel();
-
             
+            // Clearing old employment lists
+            Entities
+                .ForEach((ref DynamicBuffer<PopEmployment> employmentLists, ref Population population) =>
+                {
+                    employmentLists.Clear();
+                    population.Employed = 0;
+                }).WithBurst().ScheduleParallel();
+
             // Assign pops to jobs. Assuming max employment regardless of financial situation.
-            /*
-            var ecbCon = _commandBufferSystem.CreateCommandBuffer().ToConcurrent();
+            var popJobOpportunities = new NativeMultiHashMap<Entity, PopEmployment>(_popNumber, Allocator.TempJob);
+            var pjoCon = popJobOpportunities.AsParallelWriter();
+            var ecbConAssignment = _commandBufferSystem.CreateCommandBuffer().ToConcurrent();
             Entities
                 .WithReadOnly(popsByState)
                 .WithAll<Inhabited>()
                 .ForEach((Entity entity, int entityInQueryIndex, in DynamicBuffer<FactoryWrapper> factories, in State state) =>
                 {
-                    Debug.Log("T1");
                     if (!popsByState.TryGetFirstValue(entity, out var popEntity, out var iterator))
                         return;
-                    Debug.Log("T2");
+
+                    var currentAvailableToBeEmployed = GetComponent<Population>(popEntity).Quantity;
+                    
+                    // Foreach not supported in burst compiled jobs.
+                    // ReSharper disable once ForCanBeConvertedToForeach
                     for (var factoryIndex = 0; factoryIndex < factories.Length; factoryIndex++)
                     {
-                        Debug.Log("T3");
                         var targetFactory = factories[factoryIndex];
-                        var remainingCapacity = GetComponent<Factory>(targetFactory).MaximumEmployment;
+                        var factory = GetComponent<Factory>(targetFactory);
+                        var remainingCapacity = factory.MaximumEmployment;
                         while (true)
                         {
-                            Debug.Log("T4");
-                            var popQuantity = GetComponent<Population>(popEntity).Quantity;
-                            remainingCapacity -= popQuantity;
+                            remainingCapacity -= currentAvailableToBeEmployed;
                             if (remainingCapacity > 0)
                             {
-                                ecbCon.AppendToBuffer<Employee>(entityInQueryIndex, targetFactory, popEntity);
-                                ecbCon.SetComponent<Employer>(entityInQueryIndex, popEntity, targetFactory.Factory);
+                                AssignPopEmployment(currentAvailableToBeEmployed);
                                 if (!popsByState.TryGetNextValue(out popEntity, ref iterator))
+                                {
+                                    SetTotalEmployed();
                                     return;
+                                }
+                                currentAvailableToBeEmployed = GetComponent<Population>(popEntity).Quantity;
                                 continue;
                             }
 
                             if (remainingCapacity == 0)
+                            {
                                 // Wow, perfect fit!
+                                AssignPopEmployment(currentAvailableToBeEmployed);
                                 break;
-                            
-                            // Split pop.
-                            var employed = ecbCon.Instantiate(entityInQueryIndex, popEntity);
-                            
-                            var oldPopData = GetComponent<Population>(employed);
-                            oldPopData.Quantity = popQuantity + remainingCapacity;
-                            
-                            ecbCon.SetComponent(entityInQueryIndex, employed, oldPopData);
-                            ecbCon.AppendToBuffer<Employee>(entityInQueryIndex, targetFactory, employed);
-                            ecbCon.SetComponent<Employer>(entityInQueryIndex, employed, targetFactory.Factory);
+                            }
 
-                            oldPopData.Quantity = -remainingCapacity;
-                            ecbCon.SetComponent(entityInQueryIndex, popEntity, oldPopData);
+                            AssignPopEmployment(remainingCapacity + currentAvailableToBeEmployed);
+                            currentAvailableToBeEmployed = -remainingCapacity;
+                            remainingCapacity = 0;
                             break;
                         }
-                    }
-                }).WithoutBurst().Schedule();
-                */
+                        
+                        SetTotalEmployed();
 
-            popsByState.Dispose(Dependency);
+                        void SetTotalEmployed()
+                        {
+                            factory.TotalEmployed = factory.MaximumEmployment - remainingCapacity;
+                            ecbConAssignment.SetComponent(entityInQueryIndex, targetFactory, factory);
+                        }
+
+                        void AssignPopEmployment(int numEmployed)
+                        {
+                            pjoCon.Add(popEntity, new PopEmployment
+                            {
+                                Factory = targetFactory,
+                                Employed = numEmployed
+                            });
+                        }
+                    }
+                }).WithBurst().ScheduleParallel();
             
-            _commandBufferSystem.AddJobHandleForProducer(Dependency);
+            popsByState.Dispose(Dependency);
+
+            Entities
+                .WithReadOnly(popJobOpportunities)
+                .ForEach((Entity entity, ref DynamicBuffer<PopEmployment> popEmployments, ref Population population) =>
+                {
+                    if (!popJobOpportunities.TryGetFirstValue(entity, out var popEmployment, out var iterator))
+                        return;
+
+                    do
+                    {
+                        popEmployments.Add(popEmployment);
+                        population.Employed += popEmployment.Employed;
+                    } while (popJobOpportunities.TryGetNextValue(out popEmployment, ref iterator));
+                }).WithBurst().ScheduleParallel();
+
+            popJobOpportunities.Dispose(Dependency);
         }
         
         public static ref int GetIncrementCount()
@@ -122,26 +166,32 @@ namespace Market
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
             _debugFactories = new NativeArray<Entity>(new []
             {
-                em.CreateEntity(typeof(Factory), typeof(Wallet),
-                    typeof(Employee), typeof(Inventory), typeof(Identity)),
-                em.CreateEntity(typeof(Factory), typeof(Wallet),
-                    typeof(Employee), typeof(Inventory), typeof(Identity)),
-                em.CreateEntity(typeof(Factory), typeof(Wallet),
-                    typeof(Employee), typeof(Inventory), typeof(Identity))
+                em.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory), typeof(Identity)),
+                em.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory), typeof(Identity)),
+                em.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory), typeof(Identity))
             }, Allocator.Persistent);
             
             em.SetComponentData(_debugFactories[0], new Factory
             {
-                MaximumEmployment = maxEmploy[3]
+                MaximumEmployment = maxEmploy[3],
+                TotalEmployed = 0
             });
             em.SetComponentData(_debugFactories[1], new Factory
             {
-                MaximumEmployment = maxEmploy[4]
+                MaximumEmployment = maxEmploy[4],
+                TotalEmployed = 0
             });
             em.SetComponentData(_debugFactories[2], new Factory
             {
-                MaximumEmployment = maxEmploy[5]
+                MaximumEmployment = maxEmploy[5],
+                TotalEmployed = 0
             });
+            using (var emptyInventory = new NativeArray<Inventory>(6, Allocator.Temp))
+            {
+                em.GetBuffer<Inventory>(_debugFactories[0]).AddRange(emptyInventory);
+                em.GetBuffer<Inventory>(_debugFactories[1]).AddRange(emptyInventory);
+                em.GetBuffer<Inventory>(_debugFactories[2]).AddRange(emptyInventory);
+            }
             em.SetComponentData<Identity>(_debugFactories[0], marketIdentities[3]);
             em.SetComponentData<Identity>(_debugFactories[1], marketIdentities[4]);
             em.SetComponentData<Identity>(_debugFactories[2], marketIdentities[5]);
@@ -169,7 +219,7 @@ namespace Market
                     // Check for state initial inhabited status done in Province Load.
 
                     var rand = new Random((uint) ((entityInQueryIndex + 21) * (state.Index + 12)));
-                    var numFactories = rand.NextInt(4); // 0 to 3
+                    var numFactories = rand.NextInt(3, 10); // 3 to 9
                     for (var cursor = 0; cursor < numFactories; cursor++)
                         ecbCon.AppendToBuffer<FactoryWrapper>(entityInQueryIndex, entity, 
                             ecbCon.Instantiate(entityInQueryIndex, debugFactories[rand.NextInt(3)]));

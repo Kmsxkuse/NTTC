@@ -20,16 +20,16 @@ namespace Conversion
             using (var inventory = new NativeArray<Inventory>(6, Allocator.Temp))
             using (var provinces =
                 // Ocean doesn't have cores. Or tagged province.
-                em.CreateEntityQuery(typeof(Province), typeof(Cores), ComponentType.Exclude<OceanTag>(),
-                    ComponentType.Exclude<UncolonizedTag>()).ToEntityArray(Allocator.TempJob))
+                em.CreateEntityQuery(typeof(Province), typeof(Cores), ComponentType.Exclude<OceanCountry>(),
+                    ComponentType.Exclude<UncolonizedCountry>()).ToEntityArray(Allocator.TempJob))
             {
                 foreach (var province in provinces)
                 {
-                    var rand = Random.Range(3, 8); // 3 to 7 different types of pops.
+                    var rand = Random.Range(15, 26); // 15 to 25 different types of pops.
                     for (var i = 0; i < rand; i++)
                     {
                         var targetPop = em.CreateEntity(typeof(Population), typeof(Ethnicity),
-                            typeof(Identity), typeof(Inventory), typeof(Wallet), typeof(Location));
+                            typeof(Identity), typeof(Inventory), typeof(Wallet), typeof(Location), typeof(PopEmployment));
                         em.SetComponentData(targetPop, new Population
                         {
                             Quantity = Random.Range(300, 700)

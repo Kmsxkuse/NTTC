@@ -53,7 +53,7 @@ namespace Conversion
                                 continue;
                             case "trade_goods":
                                 var provFactory = em.CreateEntity(typeof(Factory), typeof(Wallet),
-                                    typeof(Employee), typeof(Inventory), typeof(Identity), typeof(RgoGood));
+                                    typeof(Inventory), typeof(Identity), typeof(RgoGood));
 
                                 var rand = Random.Range(0f, 10f);
                                 // 1 (50%), 2 (30%), or 3(20%).
