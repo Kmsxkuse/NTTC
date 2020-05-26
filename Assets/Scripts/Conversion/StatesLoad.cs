@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Conversion
 {
-    public class RegionsLoad : MonoBehaviour
+    public class StatesLoad : MonoBehaviour
     {
         public static (IEnumerable<string>, BlobAssetReference<StateToProv>, BlobAssetReference<ProvToState>)
             Main(IReadOnlyDictionary<int, int> idIndex, NativeHashMap<int, int> stateLookup,

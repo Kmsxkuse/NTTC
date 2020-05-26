@@ -14,7 +14,7 @@ public struct PopWrapper : IBufferElementData
 
 public struct Population : IComponentData
 {
-    // Top down connection between workplace and employees.
+    // Bottom up connection. Linked by PopEmployment buffer.
     public int Quantity, Employed;
     //public float Satisfaction;
 }
@@ -24,9 +24,15 @@ public struct Ethnicity : IComponentData
     public int Culture, Religion;
 }
 
-public struct Location : IComponentData
+public readonly struct Location : IComponentData
 {
-    public Entity Province, State;
+    public readonly Entity Province, State;
+    
+    public Location(Entity province, Entity state)
+    {
+        Province = province;
+        State = state;
+    }
 }
 
 public struct PopEmployment : IBufferElementData

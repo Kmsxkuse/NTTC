@@ -61,7 +61,7 @@ namespace Conversion
             // Parsing states
             var stateLookup = new NativeHashMap<int, int>(1, Allocator.TempJob);
             var (stateNames, stateToProvReference, provToStateReference) =
-                RegionsLoad.Main(idLookup, stateLookup, provEntityLookup);
+                StatesLoad.Main(idLookup, stateLookup, provEntityLookup);
             BlobAssetReferences.Enqueue(stateToProvReference);
             BlobAssetReferences.Enqueue(provToStateReference);
 

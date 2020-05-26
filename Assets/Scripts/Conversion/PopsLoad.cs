@@ -46,11 +46,8 @@ namespace Conversion
                         {
                             Wealth = Random.Range(500, 1000)
                         });
-                        em.SetComponentData(targetPop, new Location
-                        {
-                            Province = province,
-                            State = provToState.Value.Lookup[em.GetComponentData<Province>(province).Index]
-                        });
+                        em.SetComponentData(targetPop, new Location(province,
+                            provToState.Value.Lookup[em.GetComponentData<Province>(province).Index]));
                         em.GetBuffer<Inventory>(targetPop).AddRange(inventory);
                     }
                 }

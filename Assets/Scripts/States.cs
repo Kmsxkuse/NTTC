@@ -11,11 +11,13 @@ public struct State : IComponentData
 {
     // Created in RegionsLoad.
     public int Index;
+    public Entity Owner;
     public BlobAssetReference<StateToProv> StateToProv;
 
     public State(int index, BlobAssetReference<StateToProv> stateToProv)
     {
         Index = index;
+        Owner = Entity.Null; // Determined on first tick of game play loop.
         StateToProv = stateToProv;
     }
 }

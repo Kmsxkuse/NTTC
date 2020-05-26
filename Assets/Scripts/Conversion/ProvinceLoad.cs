@@ -53,7 +53,7 @@ namespace Conversion
                                 continue;
                             case "trade_goods":
                                 var provFactory = em.CreateEntity(typeof(Factory), typeof(Wallet),
-                                    typeof(Inventory), typeof(Identity), typeof(RgoGood));
+                                    typeof(Inventory), typeof(Identity), typeof(RgoGood), typeof(Location));
 
                                 var rand = Random.Range(0f, 10f);
                                 // 1 (50%), 2 (30%), or 3(20%).
@@ -64,6 +64,7 @@ namespace Conversion
                                     MaximumEmployment = maxEmploy[tradeGood - 1] // -1 = infinite employment.
                                 });
                                 em.SetComponentData<Identity>(provFactory, marketIdentities[tradeGood - 1]);
+                                em.SetComponentData(provFactory, new Location(provEntity, state));
 
                                 target.TradeGood = provFactory;
                                 continue;

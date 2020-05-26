@@ -4,11 +4,14 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Unity.Collections;
 using Unity.Entities;
+using UnityEngine;
+
+// ReSharper disable ConvertToUsingDeclaration
 
 public struct MarketMatrix
 {
     // Blob asset. Readonly past initialization.
-    public BlobArray<float> Deltas, Demand;
+    public BlobArray<float> Deltas;
     public BlobArray<int> Priority; // Used for pop. Lower is more important.
 }
 
@@ -28,9 +31,63 @@ public struct Identity : IComponentData
     }
 }
 
+public struct BidKey : IEquatable<BidKey>
+{
+    private readonly Entity _location;
+    private readonly int _good;
+    private readonly Transaction _type;
+
+    public BidKey(Entity location, int good, float quantity)
+    {
+        // Bid Creation
+        _location = location;
+        _good = good;
+        _type = quantity < 0 ? Transaction.Buy : Transaction.Sell;
+    }
+
+    public BidKey(Entity location, int good, Transaction type)
+    {
+        // Bid Search
+        _location = location;
+        _good = good;
+        _type = type;
+    }
+
+    public bool Equals(BidKey other)
+    {
+        return _location.Equals(other._location) && _good == other._good && _type == other._type;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is BidKey other && Equals(other);
+    }
+
+    // Hash code taken from Vector2Int
+    public override int GetHashCode()
+    {
+        // Level is not included as multiple levels are not intended to be together.
+        return _location.GetHashCode() ^ (_good << 2) * (int) _type;
+    }
+
+    public enum Transaction
+    {
+        // Int values used in hash generation
+        Buy = -1,
+        Sell = 1
+    }
+}
+
+public struct BidOffers
+{
+    public Entity Source;
+    public float Quantity; // Negative is buying. Positive is selling.
+}
+
 public struct MarketJson
 {
-    public float[] Deltas, Demand;
+    // Demand is now automatically calculated to pop employment * -delta with floor cap being 0;
+    public float[] Deltas;
 
     public int MaximumEmployment;
 
@@ -46,9 +103,6 @@ public static class MarketConvert
 
         var arrayLengths = marketJson.Deltas.Length;
 
-        if (arrayLengths != marketJson.Demand.Length)
-            throw new Exception("Invalid market matrix. Delta array length not corresponding to Demand length.");
-
         var priorityExist = marketJson.Priority != null;
         if (priorityExist && arrayLengths != marketJson.Priority.Length)
             throw new Exception("Invalid market matrix. Priority array length not " +
@@ -59,9 +113,6 @@ public static class MarketConvert
             ref var marketMatrix = ref marketIdentity.ConstructRoot<MarketMatrix>();
 
             // Can not merge. Blame Unity.
-            var demand = marketIdentity.Allocate(ref marketMatrix.Demand, arrayLengths);
-            SetAllocation(ref demand, marketJson.Demand);
-
             var deltas = marketIdentity.Allocate(ref marketMatrix.Deltas, arrayLengths);
             SetAllocation(ref deltas, marketJson.Deltas);
 
