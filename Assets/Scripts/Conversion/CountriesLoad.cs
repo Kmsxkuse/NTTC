@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
@@ -56,6 +57,14 @@ namespace Conversion
             em.SetComponentData(target, new Country {Color = new Color32(255, 228, 181, 255)});
             countryTags.Add("UNCOLONIZED", target);
             em.SetName(target, "Country: Uncolonized"); // DEBUG
+            
+            // Setting default good prices using prices
+            var defaultPrice = new NativeArray<Prices>(LoadChain.GoodNum, Allocator.Temp);
+            for (var index = 0; index < defaultPrice.Length; index++)
+                defaultPrice[index] = new Prices(1);
+            
+            // Setting holder for total goods transacted
+            var goodsTraded = new NativeArray<Inventory>(LoadChain.GoodNum, Allocator.Temp);
 
             foreach (var rawCommonLine in File.ReadLines(Path.Combine(Application.streamingAssetsPath,
                 "Common", "countries.txt")))
@@ -98,12 +107,16 @@ namespace Conversion
                     break;
                 }
 
-                target = em.CreateEntity(typeof(Country));
+                target = em.CreateEntity(typeof(Country), typeof(Prices), typeof(Inventory));
                 em.SetComponentData(target, currentCountry);
+                em.GetBuffer<Prices>(target).AddRange(defaultPrice);
+                em.GetBuffer<Inventory>(target).AddRange(goodsTraded);
                 countryTags.Add(tag, target);
                 em.SetName(target, "Country: " + Path.GetFileNameWithoutExtension(targetFile)); // DEBUG
             }
 
+            defaultPrice.Dispose();
+            goodsTraded.Dispose();
             return (countries, countryTags, countryPaths);
 
             bool CommentDetector(string line, out string sliced)

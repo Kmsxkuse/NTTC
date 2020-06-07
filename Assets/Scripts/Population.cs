@@ -2,16 +2,6 @@
 using Unity.Entities;
 using UnityEngine;
 
-public struct PopWrapper : IBufferElementData
-{
-    public Entity Population;
-
-    public static implicit operator PopWrapper(Entity e)
-    {
-        return new PopWrapper {Population = e};
-    }
-}
-
 public struct Population : IComponentData
 {
     // Bottom up connection. Linked by PopEmployment buffer.

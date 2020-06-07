@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using System;
+using Unity.Entities;
 
 public struct StateToProv
 {
@@ -31,4 +32,46 @@ public struct PartialOwnership : IComponentData
 public struct Inhabited : IComponentData
 {
     // Tag for regions that have at least one owned province.
+}
+
+public readonly struct StateGoodTraded : IEquatable<StateGoodTraded>
+{
+    // Key used for transferring number of goods traded in state to country for price calculations.
+
+    private readonly Entity _country;
+    private readonly int _goodIndex;
+
+    public StateGoodTraded(Entity country, int goodIndex)
+    {
+        _country = country;
+        _goodIndex = goodIndex;
+    }
+
+    public bool Equals(StateGoodTraded other)
+    {
+        return _country.Equals(other._country) && _goodIndex == other._goodIndex;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is StateGoodTraded other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            return (_country.GetHashCode() * 397) ^ _goodIndex;
+        }
+    }
+
+    public static bool operator ==(StateGoodTraded left, StateGoodTraded right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(StateGoodTraded left, StateGoodTraded right)
+    {
+        return !left.Equals(right);
+    }
 }

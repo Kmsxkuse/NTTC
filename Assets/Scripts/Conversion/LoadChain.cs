@@ -5,6 +5,7 @@ using CamCode;
 using Market;
 using Unity.Burst;
 using Unity.Collections;
+using Unity.Entities;
 using Unity.Jobs;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ namespace Conversion
 {
     public class LoadChain : MonoBehaviour
     {
+        public const int GoodNum = 6;
+        
         private static readonly Queue<IDisposable> BlobAssetReferences = new Queue<IDisposable>();
         // Hardcoded boot strap of Paradox files to Json.
         // Generic was taking too long and far too complex to handle.
@@ -20,8 +23,18 @@ namespace Conversion
 
         private void Awake()
         {
+            // Disabling physics. Not used in project.
+            Physics.autoSimulation = false;
+            
             // Parsing Countries.
             var (_, tagLookup, _) = CountriesLoad.Names();
+            
+            // Creating StateCountryProcessing system
+            var stateCountryProcessing = World.DefaultGameObjectInjectionWorld
+                .GetOrCreateSystem(typeof(StateCountryProcessing));
+
+            // Passing tagLookup to StateCountryProcessing debug create factories.
+            StateCountryProcessing.UncolonizedEntity = tagLookup["UNCOLONIZED"];
 
             // Parsing goods
             /*
@@ -64,6 +77,8 @@ namespace Conversion
                 StatesLoad.Main(idLookup, stateLookup, provEntityLookup);
             BlobAssetReferences.Enqueue(stateToProvReference);
             BlobAssetReferences.Enqueue(provToStateReference);
+            
+            // Attaching owned states (plus incomplete which is duplicated) to countries.
 
             //var map = LoadPng(Path.Combine(Application.streamingAssetsPath, "map", "provinces.png"));
 
@@ -96,8 +111,17 @@ namespace Conversion
             // Pops load outputs a blob asset reference. Just inlining the two calls.
             BlobAssetReferences.Enqueue(PopsLoad.Main(provToStateReference));
             
+            // Tag states that are not completely owned.
+            StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.TagOwnedStates;
+            stateCountryProcessing.Update();
+            
             // DEBUG
-            MarketSystem.SetDebugValues(factories, maxEmploy);
+            StateCountryProcessing.SetDebugValues(factories, maxEmploy);
+            StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.DebugSpawnFactories;
+            stateCountryProcessing.Update();
+            
+            // Deleting initialization system.
+            World.DefaultGameObjectInjectionWorld.DestroySystem(stateCountryProcessing);
 
             pixelHandle.Complete();
 
@@ -108,6 +132,7 @@ namespace Conversion
             
             idMap.Dispose();
 
+            /*
             Texture2D LoadPng(string filePath)
             {
                 if (!File.Exists(filePath))
@@ -118,6 +143,7 @@ namespace Conversion
                 tex.LoadImage(fileData); //..this will auto-resize the texture dimensions.
                 return tex;
             }
+            */
         }
 
         private void OnDestroy()

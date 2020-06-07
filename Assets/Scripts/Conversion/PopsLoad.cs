@@ -17,7 +17,7 @@ namespace Conversion
                 File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "Custom", "Agents", "Pop.json"))));
 
             // DEBUG: 6 hardcoded!
-            using (var inventory = new NativeArray<Inventory>(6, Allocator.Temp))
+            using (var inventory = new NativeArray<Inventory>(LoadChain.GoodNum, Allocator.Temp))
             using (var provinces =
                 // Ocean doesn't have cores. Or tagged province.
                 em.CreateEntityQuery(typeof(Province), typeof(Cores), ComponentType.Exclude<OceanCountry>(),

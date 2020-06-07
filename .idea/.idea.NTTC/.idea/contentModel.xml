@@ -24,6 +24,7 @@
             <e p="ParseFile.cs" t="Include" />
             <e p="PopsLoad.cs" t="Include" />
             <e p="ProvinceLoad.cs" t="Include" />
+            <e p="StateCountryProcessing.cs" t="Include" />
             <e p="StatesLoad.cs" t="Include" />
           </e>
           <e p="Countries.cs" t="Include" />

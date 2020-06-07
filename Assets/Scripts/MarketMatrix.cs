@@ -18,6 +18,11 @@ public struct MarketMatrix
 public struct Inventory : IBufferElementData
 {
     public float Value;
+
+    public Inventory(float value)
+    {
+        Value = value;
+    }
 }
 
 public struct Identity : IComponentData
@@ -82,6 +87,12 @@ public struct BidOffers
 {
     public Entity Source;
     public float Quantity; // Negative is buying. Positive is selling.
+}
+
+public struct BidRecord
+{
+    public int Good;
+    public float Quantity;
 }
 
 public struct MarketJson
