@@ -7,15 +7,15 @@ public struct Factory : IComponentData
 
 public struct FactoryWrapper : IBufferElementData
 {
-    public Entity Factory;
+    private Entity _factory;
 
     public static implicit operator FactoryWrapper(Entity e)
     {
-        return new FactoryWrapper {Factory = e};
+        return new FactoryWrapper {_factory = e};
     }
     public static implicit operator Entity(FactoryWrapper factoryWrapper)
     {
-        return factoryWrapper.Factory;
+        return factoryWrapper._factory;
     }
 }
 

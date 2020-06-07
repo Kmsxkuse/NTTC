@@ -107,7 +107,7 @@ namespace Conversion
                     break;
                 }
 
-                target = em.CreateEntity(typeof(Country), typeof(Prices), typeof(Inventory));
+                target = em.CreateEntity(typeof(Country), typeof(Prices), typeof(Inventory), typeof(StateWrapper));
                 em.SetComponentData(target, currentCountry);
                 em.GetBuffer<Prices>(target).AddRange(defaultPrice);
                 em.GetBuffer<Inventory>(target).AddRange(goodsTraded);

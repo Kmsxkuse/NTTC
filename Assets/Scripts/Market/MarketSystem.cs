@@ -227,7 +227,7 @@ namespace Market
             // Process country based clearing house.
             Entities
                 .WithReadOnly(countryBids)
-                .WithAll<Country>()
+                .WithAll<RelevantCountry>()
                 .ForEach((Entity entity, ref DynamicBuffer<Prices> prices, in DynamicBuffer<Inventory> goodsTradedInStates) =>
                 {
                     // Unity and Burst does NOT like generic functions with Action parameters.

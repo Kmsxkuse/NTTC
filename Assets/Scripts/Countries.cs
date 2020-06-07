@@ -25,3 +25,8 @@ public struct UncolonizedCountry : IComponentData
 {
     // Empty tag. Unique for Uncolonized country.
 }
+
+public struct RelevantCountry : IComponentData
+{
+    // Empty tag for countries that own at least one province on the map.
+}

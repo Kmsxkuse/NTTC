@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
+using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
 namespace Conversion
@@ -8,14 +10,12 @@ namespace Conversion
     [DisableAutoCreation]
     public class StateCountryProcessing : SystemBase
     {
-        public static Entity UncolonizedEntity;
-
         public static ManualMethodCall CallMethod;
 
         public enum ManualMethodCall
         {
             // Used by update to determine which method to call.
-            TagOwnedStates,
+            TagOwnedStatesAndAttachToCountry,
             DebugSpawnFactories
         }
         
@@ -25,8 +25,8 @@ namespace Conversion
         {
             switch (CallMethod)
             {
-                case ManualMethodCall.TagOwnedStates:
-                    TagOwnedStates();
+                case ManualMethodCall.TagOwnedStatesAndAttachToCountry:
+                    TagOwnedStatesAndAttachToCountry();
                     break;
                 case ManualMethodCall.DebugSpawnFactories:
                     DebugSpawnFactories();
@@ -37,32 +37,56 @@ namespace Conversion
             return;
         }
 
-        private void TagOwnedStates()
+        private void TagOwnedStatesAndAttachToCountry()
         {
+            // Wew, that function name.
             Entities
                 .WithName("Tag_States")
                 .WithStructuralChanges()
                 .WithAll<Inhabited>()
-                .ForEach((Entity entity, int entityInQueryIndex, ref State state) =>
+                .ForEach((Entity entity, ref State state) =>
                 {
                     ref var provinces = ref state.StateToProv.Value.Lookup[state.Index];
                     var owner = GetComponent<Province>(provinces[0]).Owner;
+                    var completeOwnership = true;
+
+                    var owners = new NativeList<Entity>(Allocator.Temp);
+                    owners.Add(owner);
+
+                    // Tagging complete or partial ownership
                     for (var provIndex = 1; provIndex < provinces.Length; provIndex++)
                     {
-                        if (GetComponent<Province>(provinces[provIndex]).Owner == owner)
+                        var currentOwner = GetComponent<Province>(provinces[provIndex]).Owner;
+                        if (currentOwner == owner)
                             continue;
+
+                        if (completeOwnership)
+                        {
+                            completeOwnership = false;
+                            EntityManager.AddComponent<PartialOwnership>(entity);
+                        }
                         
-                        EntityManager.AddComponent<PartialOwnership>(entity);
-                        return;
+                        owners.Add(currentOwner);
                     }
 
-                    state.Owner = owner;
+                    if (completeOwnership)
+                        state.Owner = owner;
+                    
+                    // Adding state to country list and adding tag for countries that own at least one province.
+                    foreach (var country in owners)
+                    {
+                        if (HasComponent<OceanCountry>(country) || HasComponent<UncolonizedCountry>(country))
+                            continue;
+                        
+                        // Adding state
+                        EntityManager.GetBuffer<StateWrapper>(country).Add(entity);
+                        
+                        // Adding tag
+                        if (!HasComponent<RelevantCountry>(country))
+                            EntityManager.AddComponent<RelevantCountry>(country);
+                    }
+                    
                 }).WithoutBurst().Run();
-        }
-
-        public void AttachStatesToCountry()
-        {
-            
         }
 
         public static void SetDebugValues(BlobAssetReference<MarketMatrix>[] marketIdentities, int[] maxEmploy)
@@ -126,7 +150,7 @@ namespace Conversion
 
                         // Uncolonized provinces should not have factories within them.
                         var loopCounter = 0;
-                        while (owner == UncolonizedEntity)
+                        while (HasComponent<UncolonizedCountry>(owner))
                         {
                             province = provInState[rand.NextInt(provInState.Length)];
                             owner = GetComponent<Province>(province).Owner;

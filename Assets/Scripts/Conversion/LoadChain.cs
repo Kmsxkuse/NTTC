@@ -33,9 +33,6 @@ namespace Conversion
             var stateCountryProcessing = World.DefaultGameObjectInjectionWorld
                 .GetOrCreateSystem(typeof(StateCountryProcessing));
 
-            // Passing tagLookup to StateCountryProcessing debug create factories.
-            StateCountryProcessing.UncolonizedEntity = tagLookup["UNCOLONIZED"];
-
             // Parsing goods
             /*
             var fileTree = new List<(string, object)>();
@@ -112,7 +109,7 @@ namespace Conversion
             BlobAssetReferences.Enqueue(PopsLoad.Main(provToStateReference));
             
             // Tag states that are not completely owned.
-            StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.TagOwnedStates;
+            StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.TagOwnedStatesAndAttachToCountry;
             stateCountryProcessing.Update();
             
             // DEBUG

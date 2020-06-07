@@ -23,6 +23,20 @@ public struct State : IComponentData
     }
 }
 
+public struct StateWrapper : IBufferElementData
+{
+    private Entity _state;
+
+    public static implicit operator StateWrapper(Entity e)
+    {
+        return new StateWrapper {_state = e};
+    }
+    public static implicit operator Entity(StateWrapper stateWrapper)
+    {
+        return stateWrapper._state;
+    }
+}
+
 public struct PartialOwnership : IComponentData
 {
     // For multiple countries owning one state.
