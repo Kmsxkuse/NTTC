@@ -164,6 +164,8 @@ namespace Conversion
                         EntityManager.GetBuffer<FactoryWrapper>(entity).Add(targetFactory);
                     }
                 }).WithoutBurst().Run();
+
+            _debugFactories.Dispose(Dependency);
         }
     }
 }

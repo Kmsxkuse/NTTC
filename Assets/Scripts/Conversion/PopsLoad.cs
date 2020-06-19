@@ -11,12 +11,13 @@ namespace Conversion
     {
         public static BlobAssetReference<MarketMatrix> Main(BlobAssetReference<ProvToState> provToState)
         {
-            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
+            //var em = World.DefaultGameObjectInjectionWorld.EntityManager;
 
             var pmi = MarketConvert.Main(JsonConvert.DeserializeObject<MarketJson>(
                 File.ReadAllText(Path.Combine(Application.streamingAssetsPath, "Custom", "Agents", "Pop.json"))));
 
             // DEBUG: 6 hardcoded!
+            /*
             using (var inventory = new NativeArray<Inventory>(LoadChain.GoodNum, Allocator.Temp))
             using (var provinces =
                 // Ocean doesn't have cores. Or tagged province.
@@ -52,6 +53,7 @@ namespace Conversion
                     }
                 }
             }
+            */
 
             return pmi;
         }

@@ -157,7 +157,7 @@ namespace CamCode
 
         private void OnDestroy()
         {
-            _provLookup.Dispose();
+            _provLookup.Release();
         }
 
         // Border generation
@@ -165,7 +165,7 @@ namespace CamCode
         {
             MapMaterial.SetBuffer(ProvColorBuffer, _provLookup);
             // Passing which border to render.
-            MapMaterial.SetInt(CountryBorderToggle, _orthographicSize > 1.5f ? 0 : 1);
+            MapMaterial.SetFloat(CountryBorderToggle, _orthographicSize > 1.5f ? 0 : 1);
 
             var terrainTemp = RenderTexture.GetTemporary(src.descriptor);
             var oceanTemp = RenderTexture.GetTemporary(src.descriptor);

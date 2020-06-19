@@ -10,9 +10,19 @@ using UnityEngine;
 
 namespace Market
 {
-    [UpdateInGroup(typeof(SimulationSystemGroup))]
+    //[UpdateInGroup(typeof(SimulationSystemGroup))]
+    [DisableAutoCreation] // Version 1.
     public class MarketSystem : SystemBase
     {
+        // TODO: Main problem at hand: How to restructure population to allow for minimal memory allocation when placed into bidding system.
+        // TODO: Current entity structure allows for subdivision of population to employment at specific factories but placing into market
+        // TODO: is problematic. Will have to allocate pop num * good num = 200,000+. Not good.
+        
+        // TODO: Possible solution: Dynamic buffers on provinces store population.
+        // TODO: Factories store employees as dynamic buffer of province pop index and percent of profit.
+        // TODO: Provinces will sum up current demand from population in province and inject into state level bidding as sum of pop demand.
+        // TODO: New bid size will be (factory num + inhabited prov num) * good num. Much better.
+
         public static TextMeshProUGUI TickText;
         
         private static int _incrementCount = -1;
@@ -68,19 +78,19 @@ namespace Market
 
                     // Determine if there is enough workers to work maximum or if there is too much.
                     var goodsMultiplier = math.min(factory.TotalEmployed, maximumPossibleManPower);
+
+                    var directInventory = inventory.Reinterpret<float>();
                     
                     for (var goodIndex = 0; goodIndex < inventory.Length; goodIndex++)
                     {
                         // Apply consumption production pattern.
-                        var targetInventory = inventory[goodIndex];
-                        targetInventory.Value += goodsMultiplier * deltas[goodIndex];
-                        inventory[goodIndex] = targetInventory;
+                        directInventory[goodIndex] += goodsMultiplier * deltas[goodIndex];
                         
                         if (math.abs(inventory[goodIndex].Value - factory.TotalEmployed * deltas[goodIndex]) < 1)
                             continue;
                         
                         // Add bids to collector categorized by region and goods for region first exchange.
-                        var quantity = math.min(factory.TotalEmployed * deltas[goodIndex], 0) + targetInventory.Value;
+                        var quantity = math.min(factory.TotalEmployed * deltas[goodIndex], 0) + directInventory[goodIndex];
                         fbCon.Add(new BidKey(location.State, goodIndex, quantity), new BidOffers
                         {
                             Source = facEntity,
@@ -90,7 +100,7 @@ namespace Market
                 }).ScheduleParallel();
             
             // Processes state based factory clearing house.
-            
+            // Processed bids records matched transactions for later collapsing to inventory and transfer of currency.
             var processedBids = new NativeMultiHashMap<Entity, BidRecord>(bidCapacity, Allocator.TempJob);
             var pbCon = processedBids.AsParallelWriter();
             
@@ -98,13 +108,15 @@ namespace Market
             var cbCon = countryBids.AsParallelWriter();
             
             Entities
-                .WithName("Factory_State_CH")
+                .WithName("Factory_State_Level_Exchange")
                 .WithReadOnly(factoryBids)
                 .WithAll<Inhabited>()
                 .ForEach((Entity entity, ref DynamicBuffer<Inventory> goodsTraded, in State state) =>
                 {
                     // Unity and Burst does NOT like generic functions with Action parameters.
                     // Thus, this is copied for both state and country bid completion.
+                    
+                    var directGoods = goodsTraded.Reinterpret<float>();
                     
                     for (var goodIndex = 0; goodIndex < GoodsCount; goodIndex++)
                     {
@@ -201,7 +213,7 @@ namespace Market
                                 break;
                         }
                         
-                        goodsTraded[goodIndex] = new Inventory(totalTraded);
+                        directGoods[goodIndex] = totalTraded;
 
                         void TransferBids(BidKey.Transaction transaction)
                         {
@@ -223,8 +235,28 @@ namespace Market
             factoryBids.Dispose(Dependency);
             
             // Summing state goods traded and transferring to country.
+            var tradedInStates = GetBufferFromEntity<Inventory>(true);
+            Entities
+                .WithName("Summing_Traded_States_To_Country")
+                .WithReadOnly(tradedInStates)
+                .WithAll<RelevantCountry>()
+                .ForEach((ref DynamicBuffer<Inventory> goodsTradedInStates, in DynamicBuffer<StateWrapper> states) =>
+                {
+                    var counters = goodsTradedInStates.Reinterpret<float>();
+                    
+                    for (var index = 0; index < states.Length; index++)
+                    {
+                        // Can not be made foreach. Burst does not like foreach.
+                        var currentStateInv = tradedInStates[states[index]];
+                        for (var goodNum = 0; goodNum < goodsTradedInStates.Length; goodNum++)
+                            counters[goodNum] += currentStateInv[goodNum].Value;
+                    }
+                }).ScheduleParallel();
             
             // Process country based clearing house.
+            var internationalBids = new NativeMultiHashMap<BidKey, BidOffers>(bidCapacity, Allocator.TempJob);
+            var ibCon = internationalBids.AsParallelWriter();
+            
             Entities
                 .WithReadOnly(countryBids)
                 .WithAll<RelevantCountry>()
@@ -232,10 +264,13 @@ namespace Market
                 {
                     // Unity and Burst does NOT like generic functions with Action parameters.
                     // Thus, this is copied for both state and country bid completion.
+
+                    var directPrices = prices.Reinterpret<float>();
                     
                     for (var goodIndex = 0; goodIndex < GoodsCount; goodIndex++)
                     {
                         var remainingOffers = 0;
+                        var countryTransferred = 0f;
 
                         if (!countryBids.TryGetFirstValue(new BidKey(entity, goodIndex, BidKey.Transaction.Sell),
                             out var bidSell, out var iteratorSell))
@@ -272,6 +307,8 @@ namespace Market
                                     Good = goodIndex,
                                     Quantity = -quantityTraded
                                 });
+
+                                countryTransferred += quantityTraded;
                             }
                             
                             if (bidSell.Quantity < 0.1 && !countryBids.TryGetNextValue(out bidSell, ref iteratorSell))
@@ -284,15 +321,45 @@ namespace Market
                         }
                         
                         RecordRemaining:
-                        CountryRemaining(remainingOffers, goodIndex);
-                    }
+                        // If only Burst allowed for lambdas / delegates / action parameters...
+                        // Calculating final price using remaining goods and passing to international.
+                        var remaining = 0f;
+                        switch (remainingOffers)
+                        {
+                            case 1:
+                                // Sell offers ran out, buy offers left.
+                                remaining = TransferBids(BidKey.Transaction.Buy);
+                                break;
+                            case 2:
+                                // Buy offers ran out, sell offers left.
+                                remaining = TransferBids(BidKey.Transaction.Sell);
+                                break;
+                            case 3:
+                                // Both offers ran out.
+                                break;
+                        }
 
-                    void CountryRemaining(int remainingOffers, int goodIndex)
-                    {
-                        // Calculating final price using remaining goods.
-                        
-                        // Passing to international clearing house.
-                        // TBD
+                        directPrices[goodIndex] 
+                            *= 1f + remaining / (countryTransferred + goodsTradedInStates[goodIndex].Value + math.abs(remaining));
+
+                        float TransferBids(BidKey.Transaction transaction)
+                        {
+                            // Transferring to country level bidding.
+
+                            var remainingQuantity = 0f;
+                            
+                            if (!countryBids.TryGetFirstValue(new BidKey(entity, goodIndex, transaction),
+                                out var bid, out var iterator))
+                                return remainingQuantity;
+
+                            do
+                            {
+                                remainingQuantity += bid.Quantity * (int) transaction;
+                                ibCon.Add(new BidKey(Entity.Null, goodIndex, transaction), bid);
+                            } while (countryBids.TryGetNextValue(out bid, ref iterator));
+
+                            return remainingQuantity;
+                        }
                     }
                 }).ScheduleParallel();
 

@@ -19,15 +19,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f691e7ce-189d-4a78-a0b7-3bb68e1e41b6" name="Default Changelist" comment="Refactoring initialization to separate system manually called by LoadChain">
+    <list default="true" id="f691e7ce-189d-4a78-a0b7-3bb68e1e41b6" name="Default Changelist" comment="Adding Country to State connection and tag for countries with at least one province on the map.">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/test.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Countries.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +55,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Population.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Countries.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3F320969-2671-46D3-AEAA-DEA90DEA3CDD/5d/cf88041d/ComputeBuffer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/StatesLoad.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,18 +84,28 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/StatesLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Countries.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ScalarGoods.compute" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" />
       </list>
     </option>
   </component>
@@ -82,6 +118,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -118,7 +155,11 @@
       <workItem from="1591405997145" duration="484000" />
       <workItem from="1591406528590" duration="2929000" />
       <workItem from="1591480095397" duration="3508000" />
-      <workItem from="1591503959498" duration="11132000" />
+      <workItem from="1591503959498" duration="11356000" />
+      <workItem from="1591565987652" duration="3321000" />
+      <workItem from="1591586234628" duration="8805000" />
+      <workItem from="1592517658170" duration="4245000" />
+      <workItem from="1592522146414" duration="28308000" />
     </task>
     <task id="LOCAL-00001" summary="Update Unity to 2020.2 a13">
       <created>1591406246458</created>
@@ -134,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591512790917</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Adding Country to State connection and tag for countries with at least one province on the map.">
+      <created>1591515474449</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591515474449</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -152,10 +200,12 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update Unity to 2020.2 a13" />
     <MESSAGE value="Refactoring initialization to separate system manually called by LoadChain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring initialization to separate system manually called by LoadChain" />
+    <MESSAGE value="Adding Country to State connection and tag for countries with at least one province on the map." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Country to State connection and tag for countries with at least one province on the map." />
   </component>
   <component name="WindowStateProjectService">
     <state x="670" y="146" key="RiderGenerateDialog" timestamp="1591507962320">
@@ -166,10 +216,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="803" y="369" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591408586842" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1591406253148">
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1591515482643">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1591406253148" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1591515482643" />
     <state x="639" y="277" width="642" height="526" key="find.popup" timestamp="1591514958304">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

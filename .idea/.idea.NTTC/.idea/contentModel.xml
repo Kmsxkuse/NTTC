@@ -14,6 +14,7 @@
             <e p="MainCam.cs" t="Include" />
             <e p="OceanCam.cs" t="Include" />
             <e p="ProvinceGen.shader" t="Include" />
+            <e p="Scalar.compute" t="Include" />
             <e p="TerrainCam.cs" t="Include" />
           </e>
           <e p="Conversion" t="Include">
@@ -24,6 +25,7 @@
             <e p="ParseFile.cs" t="Include" />
             <e p="PopsLoad.cs" t="Include" />
             <e p="ProvinceLoad.cs" t="Include" />
+            <e p="ScalarSystemBootstrap.cs" t="Include" />
             <e p="StateCountryProcessing.cs" t="Include" />
             <e p="StatesLoad.cs" t="Include" />
           </e>
@@ -31,6 +33,7 @@
           <e p="Factory.cs" t="Include" />
           <e p="Market" t="Include">
             <e p="MarketSystem.cs" t="Include" />
+            <e p="ScalarSystem.cs" t="Include" />
             <e p="Timer.cs" t="Include" />
           </e>
           <e p="MarketMatrix.cs" t="Include" />

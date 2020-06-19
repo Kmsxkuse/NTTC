@@ -36,31 +36,31 @@ public struct Identity : IComponentData
     }
 }
 
-public struct BidKey : IEquatable<BidKey>
+public readonly struct BidKey : IEquatable<BidKey>
 {
-    private readonly Entity _location;
+    private readonly Entity _keyEntityLocation; // Not to be confused with location component.
     private readonly int _good;
     private readonly Transaction _type;
 
-    public BidKey(Entity location, int good, float quantity)
+    public BidKey(Entity keyEntityLocation, int good, float quantity)
     {
         // Bid Creation
-        _location = location;
+        _keyEntityLocation = keyEntityLocation;
         _good = good;
         _type = quantity < 0 ? Transaction.Buy : Transaction.Sell;
     }
 
-    public BidKey(Entity location, int good, Transaction type)
+    public BidKey(Entity keyEntityLocation, int good, Transaction type)
     {
         // Bid Search
-        _location = location;
+        _keyEntityLocation = keyEntityLocation;
         _good = good;
         _type = type;
     }
 
     public bool Equals(BidKey other)
     {
-        return _location.Equals(other._location) && _good == other._good && _type == other._type;
+        return _keyEntityLocation.Equals(other._keyEntityLocation) && _good == other._good && _type == other._type;
     }
 
     public override bool Equals(object obj)
@@ -72,14 +72,14 @@ public struct BidKey : IEquatable<BidKey>
     public override int GetHashCode()
     {
         // Level is not included as multiple levels are not intended to be together.
-        return _location.GetHashCode() ^ (_good << 2) * (int) _type;
+        return _keyEntityLocation.GetHashCode() ^ (_good << 2) * (int) _type;
     }
 
     public enum Transaction
     {
-        // Int values used in hash generation
-        Buy = -1,
-        Sell = 1
+        // Int values very important in determining direction of price change post country market.
+        Buy = 1,
+        Sell = -1
     }
 }
 

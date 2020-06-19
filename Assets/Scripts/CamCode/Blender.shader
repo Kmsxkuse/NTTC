@@ -2,8 +2,8 @@
 {
     Properties
     {
-        _MainTex("Base (RGBA)", 2D) = "white" {}
-        _SecondTex("Base (RGBA)", 2D) = "white" {}
+        _MainTex("Main Texture (RGBA)", 2D) = "white" {}
+        _SecondTex("Secondary Texture (RGBA)", 2D) = "white" {}
     }
     
     SubShader

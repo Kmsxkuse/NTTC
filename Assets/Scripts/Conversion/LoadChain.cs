@@ -80,10 +80,12 @@ namespace Conversion
             //var map = LoadPng(Path.Combine(Application.streamingAssetsPath, "map", "provinces.png"));
 
             // DEBUG
-            var map = new Texture2D(ProvinceMap.width, ProvinceMap.height, TextureFormat.RGBA32, false);
+            var map = new Texture2D(ProvinceMap.width, ProvinceMap.height, TextureFormat.RGBA32, false)
+            {
+                filterMode = FilterMode.Point
+            };
+            
             Graphics.CopyTexture(ProvinceMap, map);
-
-            map.filterMode = FilterMode.Point;
 
             // Disposed automatically after job.
             var colorMap = new NativeArray<Color32>(map.GetPixels32(), Allocator.TempJob);
@@ -97,6 +99,7 @@ namespace Conversion
                 StateLookup = stateLookup
             }.Schedule(colorMap.Length, 32);
 
+            colorMap.Dispose(pixelHandle);
             colorLookup.Dispose(pixelHandle);
             stateLookup.Dispose(pixelHandle);
 
@@ -125,7 +128,8 @@ namespace Conversion
             map.SetPixels32(idMap.ToArray());
             map.Apply();
 
-            LoadMap.Texture = map;
+            LoadMap.MapTexture = map;
+            ScalarSystem.MapTex = map;
             
             idMap.Dispose();
 
@@ -152,7 +156,7 @@ namespace Conversion
         [BurstCompile]
         private struct ProcessPixel : IJobParallelFor
         {
-            [DeallocateOnJobCompletion] public NativeArray<Color32> ColorMap;
+            [ReadOnly] public NativeArray<Color32> ColorMap;
             [ReadOnly] public NativeHashMap<Color, int> ColorLookup;
             [ReadOnly] public NativeHashMap<int, int> StateLookup;
             [WriteOnly] public NativeArray<Color32> IdMap;

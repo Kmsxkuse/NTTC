@@ -7,20 +7,19 @@ namespace Market
 {
     public class Timer : MonoBehaviour
     {
-        public GameObject TickText, SpeedText;
+        public GameObject SpeedText;
         
         private TextMeshProUGUI _speedText;
 
         private void Start()
         {
-            MarketSystem.TickText = TickText.GetComponent<TextMeshProUGUI>();
             _speedText = SpeedText.GetComponent<TextMeshProUGUI>();
             SetSpeedText();
         }
 
         public void Increase()
         {
-            ref var incrementCount = ref MarketSystem.GetIncrementCount();
+            ref var incrementCount = ref ScalarSystem.GetIncrementCount();
             
             if (incrementCount == -1)
                 incrementCount = 64;
@@ -31,7 +30,7 @@ namespace Market
 
         public void Decrease()
         {
-            ref var incrementCount = ref MarketSystem.GetIncrementCount();
+            ref var incrementCount = ref ScalarSystem.GetIncrementCount();
             
             if (incrementCount == -1)
                 return;
@@ -45,7 +44,7 @@ namespace Market
 
         private void SetSpeedText()
         {
-            ref var incrementCount = ref MarketSystem.GetIncrementCount();
+            ref var incrementCount = ref ScalarSystem.GetIncrementCount();
             _speedText.text = incrementCount == -1 ? "Paused" : incrementCount.ToString();
         }
     }
