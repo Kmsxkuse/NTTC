@@ -93,9 +93,7 @@ namespace Market
             throw new Exception("TESSST");
             */
         }
-
-        // Foreach not supported in burst compiled jobs.
-        [SuppressMessage("ReSharper", "ForCanBeConvertedToForeach")]
+        
         private void Employment()
         {
             // Matching pops with factories. Leftovers go to province RGO.
@@ -284,6 +282,21 @@ namespace Market
 
             incompleteFactoriesByState.Dispose(Dependency);
             unemployedByState.Dispose(Dependency);
+            
+            Entities
+                .WithName("RGO_Unemployment")
+                .WithNone<UncolonizedProvince>()
+                .ForEach((ref ProvinceRgo provinceRgo, in DynamicBuffer<Population> pops) =>
+                {
+                    provinceRgo.Unemployed = 0;
+                    
+                    // ReSharper disable once ForCanBeConvertedToForeach
+                    for (var popIndex = 0; popIndex < pops.Length; popIndex++)
+                    {
+                        var targetPop = pops[popIndex];
+                        provinceRgo.Unemployed += targetPop.Quantity - targetPop.Employed;
+                    }
+                }).ScheduleParallel();
         }
 
         public static ref int GetIncrementCount()

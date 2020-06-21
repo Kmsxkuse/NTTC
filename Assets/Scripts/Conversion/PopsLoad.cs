@@ -27,7 +27,7 @@ namespace Conversion
                     em.GetBuffer<Population>(province).Add(new Population
                     {
                         // Maximum factory employment is 1000.
-                        Quantity = Random.Range(100, 500),
+                        Quantity = Random.Range(400, 800),
                         Employed = 0,
                         Wealth = Random.Range(100, 200)
                     });

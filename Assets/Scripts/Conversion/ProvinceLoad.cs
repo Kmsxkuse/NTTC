@@ -19,7 +19,7 @@ namespace Conversion
 
             var provinces = Directory.GetFiles(Path.Combine(Application.streamingAssetsPath, "history", "provinces"),
                 "*.txt", SearchOption.AllDirectories);
-            using var cores = new NativeList<Cores>(Allocator.Temp);
+            using var cores = new NativeList<Cores>(Allocator.TempJob);
             foreach (var province in provinces)
             {
                 cores.Clear();
@@ -39,7 +39,7 @@ namespace Conversion
                 {
                     em.RemoveComponent<OceanProvince>(provEntity);
                     em.AddComponents(provEntity, new ComponentTypes(typeof(Population), typeof(Inventory),
-                        typeof(ProvinceRgo), typeof(FactoryWrapper)));
+                        typeof(ProvinceRgo), typeof(FactoryWrapper), typeof(Cores)));
                 }
 
                 var target = em.GetComponentData<Province>(provEntity);
@@ -60,22 +60,12 @@ namespace Conversion
                             cores.Add(tagLookup[(string) value]);
                             continue;
                         case "trade_goods":
-                            var provFactory = em.CreateEntity(typeof(Factory), typeof(Wallet),
-                                typeof(Inventory), typeof(Identity), typeof(RgoGood), typeof(Location));
-
                             var rand = Random.Range(0f, 10f);
                             // 1 (50%), 2 (30%), or 3(20%).
                             var tradeGood = (int) math.ceil(math.pow(rand, 3) /
                                 600f - math.pow(rand, 2) / 200f + 11 * rand / 60);
-                            em.SetComponentData(provFactory, new Factory
-                            {
-                                MaximumEmployment = maxEmploy[tradeGood - 1] // -1 = infinite employment.
-                            });
-                            em.SetComponentData<Identity>(provFactory, marketIdentities[tradeGood - 1]);
-                            em.SetComponentData(provFactory, new Location(provEntity, state));
-                            em.SetName(provFactory, $"RGO: {tradeGood}");
 
-                            em.SetComponentData(provEntity,new ProvinceRgo(provFactory));
+                            em.SetComponentData(provEntity,new ProvinceRgo(tradeGood, 0));
                             continue;
                         case "life_rating":
                             target.LifeRating = int.Parse((string) value);
@@ -89,7 +79,7 @@ namespace Conversion
                 }
 
                 em.SetComponentData(provEntity, target);
-                em.AddBuffer<Cores>(provEntity).AddRange(cores);
+                em.GetBuffer<Cores>(provEntity).AddRange(cores);
             }
         }
     }

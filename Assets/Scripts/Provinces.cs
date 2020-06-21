@@ -19,11 +19,12 @@ public struct Province : IComponentData
 
 public struct ProvinceRgo : IComponentData
 {
-    public Entity TradeGood;
+    public int TradeGood, Unemployed;
 
-    public ProvinceRgo(Entity tradeGood)
+    public ProvinceRgo(int tradeGood, int unemployed)
     {
         TradeGood = tradeGood;
+        Unemployed = unemployed;
     }
 }
 
