@@ -3,19 +3,21 @@
 public struct Factory : IComponentData
 {
     public int MaximumEmployment, TotalEmployed;
+
+    public Factory(int maximumEmployment, int totalEmployed)
+    {
+        MaximumEmployment = maximumEmployment;
+        TotalEmployed = totalEmployed;
+    }
 }
 
 public struct FactoryWrapper : IBufferElementData
 {
-    private Entity _factory;
+    public Entity Factory;
 
-    public static implicit operator FactoryWrapper(Entity e)
+    public FactoryWrapper(Entity factory)
     {
-        return new FactoryWrapper {_factory = e};
-    }
-    public static implicit operator Entity(FactoryWrapper factoryWrapper)
-    {
-        return factoryWrapper._factory;
+        Factory = factory;
     }
 }
 

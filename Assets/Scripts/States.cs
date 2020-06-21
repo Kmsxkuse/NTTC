@@ -31,6 +31,7 @@ public struct StateWrapper : IBufferElementData
     {
         return new StateWrapper {_state = e};
     }
+
     public static implicit operator Entity(StateWrapper stateWrapper)
     {
         return stateWrapper._state;

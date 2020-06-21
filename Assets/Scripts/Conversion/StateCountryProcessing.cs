@@ -1,8 +1,6 @@
 using System;
-using System.Linq;
 using Unity.Collections;
 using Unity.Entities;
-using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
 namespace Conversion
@@ -10,17 +8,22 @@ namespace Conversion
     [DisableAutoCreation]
     public class StateCountryProcessing : SystemBase
     {
-        public static ManualMethodCall CallMethod;
-
         public enum ManualMethodCall
         {
             // Used by update to determine which method to call.
             TagOwnedStatesAndAttachToCountry,
-            DebugSpawnFactories
+            DebugSpawnFactories,
+            SetDebugValues,
+            DisposeDebugFactoryTemplates
         }
-        
-        private static NativeArray<Entity> _debugFactories;
-        
+
+        public static ManualMethodCall CallMethod;
+
+        public static BlobAssetReference<MarketMatrix>[] MarketIdentities;
+        public static int[] MaxEmploy;
+
+        private NativeArray<Entity> _debugFactories;
+
         protected override void OnUpdate()
         {
             switch (CallMethod)
@@ -31,10 +34,15 @@ namespace Conversion
                 case ManualMethodCall.DebugSpawnFactories:
                     DebugSpawnFactories();
                     break;
+                case ManualMethodCall.SetDebugValues:
+                    SetDebugValues();
+                    break;
+                case ManualMethodCall.DisposeDebugFactoryTemplates:
+                    DisposeDebugFactoryTemplates();
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            return;
         }
 
         private void TagOwnedStatesAndAttachToCountry()
@@ -65,107 +73,96 @@ namespace Conversion
                             completeOwnership = false;
                             EntityManager.AddComponent<PartialOwnership>(entity);
                         }
-                        
+
                         owners.Add(currentOwner);
                     }
 
                     if (completeOwnership)
                         state.Owner = owner;
-                    
+
                     // Adding state to country list and adding tag for countries that own at least one province.
                     foreach (var country in owners)
                     {
                         if (HasComponent<OceanCountry>(country) || HasComponent<UncolonizedCountry>(country))
                             continue;
-                        
+
                         // Adding state
                         EntityManager.GetBuffer<StateWrapper>(country).Add(entity);
-                        
+
                         // Adding tag
                         if (!HasComponent<RelevantCountry>(country))
                             EntityManager.AddComponent<RelevantCountry>(country);
                     }
-                    
                 }).WithoutBurst().Run();
         }
 
-        public static void SetDebugValues(BlobAssetReference<MarketMatrix>[] marketIdentities, int[] maxEmploy)
+        private void SetDebugValues()
         {
-            var em = World.DefaultGameObjectInjectionWorld.EntityManager;
-            _debugFactories = new NativeArray<Entity>(new []
+            _debugFactories = new NativeArray<Entity>(new[]
             {
-                em.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory), typeof(Identity), typeof(Location)),
-                em.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory), typeof(Identity), typeof(Location)),
-                em.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory), typeof(Identity), typeof(Location))
-            }, Allocator.Persistent);
-            
-            em.SetComponentData(_debugFactories[0], new Factory
+                EntityManager.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory),
+                    typeof(Identity), typeof(Location), typeof(FactoryEmployment)),
+                EntityManager.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory),
+                    typeof(Identity), typeof(Location), typeof(FactoryEmployment)),
+                EntityManager.CreateEntity(typeof(Factory), typeof(Wallet), typeof(Inventory),
+                    typeof(Identity), typeof(Location), typeof(FactoryEmployment))
+            }, Allocator.TempJob);
+
+            for (var index = 0; index < _debugFactories.Length; index++)
             {
-                MaximumEmployment = maxEmploy[3],
-                TotalEmployed = 0
-            });
-            em.SetComponentData(_debugFactories[1], new Factory
-            {
-                MaximumEmployment = maxEmploy[4],
-                TotalEmployed = 0
-            });
-            em.SetComponentData(_debugFactories[2], new Factory
-            {
-                MaximumEmployment = maxEmploy[5],
-                TotalEmployed = 0
-            });
-            using (var emptyInventory = new NativeArray<Inventory>(LoadChain.GoodNum, Allocator.Temp))
-            {
-                em.GetBuffer<Inventory>(_debugFactories[0]).AddRange(emptyInventory);
-                em.GetBuffer<Inventory>(_debugFactories[1]).AddRange(emptyInventory);
-                em.GetBuffer<Inventory>(_debugFactories[2]).AddRange(emptyInventory);
+                var factory = _debugFactories[index];
+
+                EntityManager.SetComponentData(factory, new Factory
+                {
+                    MaximumEmployment = MaxEmploy[index + 3],
+                    TotalEmployed = 0
+                });
+
+                using (var emptyInventory = new NativeArray<Inventory>(LoadChain.GoodNum, Allocator.Temp))
+                {
+                    EntityManager.GetBuffer<Inventory>(factory).AddRange(emptyInventory);
+                }
+
+                EntityManager.SetComponentData<Identity>(factory, MarketIdentities[index + 3]);
+                EntityManager.SetComponentData(factory, new Wallet {Wealth = 1000});
             }
-            em.SetComponentData<Identity>(_debugFactories[0], marketIdentities[3]);
-            em.SetComponentData<Identity>(_debugFactories[1], marketIdentities[4]);
-            em.SetComponentData<Identity>(_debugFactories[2], marketIdentities[5]);
-            em.SetComponentData(_debugFactories[0], new Wallet {Wealth = 1000});
-            em.SetComponentData(_debugFactories[1], new Wallet {Wealth = 1000});
-            em.SetComponentData(_debugFactories[2], new Wallet {Wealth = 1000});
         }
 
         private void DebugSpawnFactories()
         {
-            // Spawns random 4, 5, or 6 factory in every region with an owned province.
+            // Spawns random factories in every region with an owned province.
+
+            var rand = new Random(123456789);
+
             Entities
                 .WithName("Debug_Spawn_Rand_Factories")
                 .WithStructuralChanges()
-                .WithAll<Inhabited>()
-                .ForEach((Entity entity, in State state) =>
+                .WithNone<OceanProvince, UncolonizedProvince>()
+                .ForEach((Entity entity, in Province province) =>
                 {
                     // Check for state initial inhabited status done in Province Load.
-                    ref var provInState = ref state.StateToProv.Value.Lookup[state.Index];
+                    ref var provToState = ref province.ProvToState.Value.Lookup;
+                    var state = provToState[province.Index];
 
-                    var rand = new Random((uint) state.Index + 12);
-                    var numFactories = rand.NextInt(3, 10); // 3 to 9
+                    var numFactories = rand.NextInt(0, 4); // 0 to 3
 
                     for (var cursor = 0; cursor < numFactories; cursor++)
                     {
-                        var province = provInState[rand.NextInt(provInState.Length)];
-                        var owner = GetComponent<Province>(province).Owner;
-
-                        // Uncolonized provinces should not have factories within them.
-                        var loopCounter = 0;
-                        while (HasComponent<UncolonizedCountry>(owner))
-                        {
-                            province = provInState[rand.NextInt(provInState.Length)];
-                            owner = GetComponent<Province>(province).Owner;
-                            
-                            if (loopCounter++ > 20)
-                                throw new Exception("Uncolonized province search timed out!");
-                        }
-                        
-                        var targetFactory = EntityManager.Instantiate(_debugFactories[rand.NextInt(3)]);
-                        EntityManager.SetComponentData(targetFactory,new Location(province, entity));
-                        EntityManager.GetBuffer<FactoryWrapper>(entity).Add(targetFactory);
+                        var type = rand.NextInt(3);
+                        var targetFactory = EntityManager.Instantiate(_debugFactories[type]);
+                        EntityManager.SetComponentData(targetFactory, new Location(entity, state));
+                        EntityManager.GetBuffer<FactoryWrapper>(entity).Add(new FactoryWrapper(targetFactory));
+                        EntityManager.SetName(targetFactory, $"Type: {type}.");
                     }
                 }).WithoutBurst().Run();
+        }
 
-            _debugFactories.Dispose(Dependency);
+        private void DisposeDebugFactoryTemplates()
+        {
+            foreach (var factory in _debugFactories)
+                EntityManager.DestroyEntity(factory);
+
+            _debugFactories.Dispose();
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using CamCode;
 using Market;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Conversion
@@ -14,7 +14,7 @@ namespace Conversion
     public class LoadChain : MonoBehaviour
     {
         public const int GoodNum = 6;
-        
+
         private static readonly Queue<IDisposable> BlobAssetReferences = new Queue<IDisposable>();
         // Hardcoded boot strap of Paradox files to Json.
         // Generic was taking too long and far too complex to handle.
@@ -25,10 +25,10 @@ namespace Conversion
         {
             // Disabling physics. Not used in project.
             Physics.autoSimulation = false;
-            
+
             // Parsing Countries.
             var (_, tagLookup, _) = CountriesLoad.Names();
-            
+
             // Creating StateCountryProcessing system
             var stateCountryProcessing = World.DefaultGameObjectInjectionWorld
                 .GetOrCreateSystem(typeof(StateCountryProcessing));
@@ -68,15 +68,6 @@ namespace Conversion
             var (provNames, idLookup, provEntityLookup) =
                 DefinitionsLoad.Main(colorLookup, oceanDefault);
 
-            // Parsing states
-            var stateLookup = new NativeHashMap<int, int>(1, Allocator.TempJob);
-            var (stateNames, stateToProvReference, provToStateReference) =
-                StatesLoad.Main(idLookup, stateLookup, provEntityLookup);
-            BlobAssetReferences.Enqueue(stateToProvReference);
-            BlobAssetReferences.Enqueue(provToStateReference);
-            
-            // Attaching owned states (plus incomplete which is duplicated) to countries.
-
             //var map = LoadPng(Path.Combine(Application.streamingAssetsPath, "map", "provinces.png"));
 
             // DEBUG
@@ -84,24 +75,53 @@ namespace Conversion
             {
                 filterMode = FilterMode.Point
             };
-            
+
             Graphics.CopyTexture(ProvinceMap, map);
 
-            // Disposed automatically after job.
+            // Begin CPU pixel processing jobs.
             var colorMap = new NativeArray<Color32>(map.GetPixels32(), Allocator.TempJob);
+
+            var pixelCollector = new NativeMultiHashMap<int, int>(colorMap.Length, Allocator.TempJob);
+
+            var pixelHandle = new CollectPixels
+            {
+                ColorMap = colorMap,
+                ColorLookup = colorLookup,
+                Collector = pixelCollector.AsParallelWriter()
+            }.Schedule(colorMap.Length, 32);
+
+            // Parsing states
+            var stateLookup = new NativeHashMap<int, int>(1, Allocator.TempJob);
+            var (stateNames, stateToProvReference, provToStateReference) =
+                StatesLoad.Main(idLookup, stateLookup, provEntityLookup);
+            BlobAssetReferences.Enqueue(stateToProvReference);
+            BlobAssetReferences.Enqueue(provToStateReference);
+
             var idMap = new NativeArray<Color32>(colorMap.Length, Allocator.TempJob);
 
-            var pixelHandle = new ProcessPixel
+            pixelHandle = new ProcessPixel
             {
                 ColorLookup = colorLookup,
                 ColorMap = colorMap,
                 IdMap = idMap,
                 StateLookup = stateLookup
-            }.Schedule(colorMap.Length, 32);
+            }.Schedule(colorMap.Length, 32, pixelHandle);
+
+            stateLookup.Dispose(pixelHandle);
 
             colorMap.Dispose(pixelHandle);
             colorLookup.Dispose(pixelHandle);
-            stateLookup.Dispose(pixelHandle);
+
+            var centroids = new NativeArray<Color32>(idLookup.Count, Allocator.TempJob);
+
+            pixelHandle = new FindCentroid
+            {
+                Collector = pixelCollector,
+                Width = ProvinceMap.width,
+                Centroids = centroids
+            }.Schedule(centroids.Length, 2, pixelHandle);
+
+            pixelCollector.Dispose(pixelHandle);
 
             var (factories, maxEmploy) = AgentsLoad.Main();
             foreach (var blobAssetReference in factories)
@@ -110,16 +130,24 @@ namespace Conversion
             ProvinceLoad.Main(provEntityLookup, tagLookup, factories, maxEmploy, provToStateReference);
             // Pops load outputs a blob asset reference. Just inlining the two calls.
             BlobAssetReferences.Enqueue(PopsLoad.Main(provToStateReference));
-            
+
             // Tag states that are not completely owned.
+            // Also attaching owned states (plus incomplete which is duplicated) to countries.
             StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.TagOwnedStatesAndAttachToCountry;
             stateCountryProcessing.Update();
-            
+
             // DEBUG
-            StateCountryProcessing.SetDebugValues(factories, maxEmploy);
+            StateCountryProcessing.MarketIdentities = factories;
+            StateCountryProcessing.MaxEmploy = maxEmploy;
+            StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.SetDebugValues;
+            stateCountryProcessing.Update();
+
             StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.DebugSpawnFactories;
             stateCountryProcessing.Update();
-            
+
+            StateCountryProcessing.CallMethod = StateCountryProcessing.ManualMethodCall.DisposeDebugFactoryTemplates;
+            stateCountryProcessing.Update();
+
             // Deleting initialization system.
             World.DefaultGameObjectInjectionWorld.DestroySystem(stateCountryProcessing);
 
@@ -128,10 +156,22 @@ namespace Conversion
             map.SetPixels32(idMap.ToArray());
             map.Apply();
 
+            var centroidTex = new Texture2D(centroids.Length, 1, TextureFormat.RGBA32, false)
+            {
+                filterMode = FilterMode.Point
+            };
+
+            centroidTex.SetPixels32(centroids.ToArray());
+            centroidTex.Apply();
+
             LoadMap.MapTexture = map;
-            ScalarSystem.MapTex = map;
-            
+            ScalarSystem.IdMapTex = map;
+            ScalarSystem.CentroidTex = centroidTex;
+
+            //File.WriteAllBytes(Path.Combine(Application.streamingAssetsPath, "test.png"), centroidTex.EncodeToPNG());
+
             idMap.Dispose();
+            centroids.Dispose();
 
             /*
             Texture2D LoadPng(string filePath)
@@ -171,6 +211,55 @@ namespace Conversion
                 // B and A: Current State.
                 IdMap[index] = new Color32((byte) (currentIndex >> 0), (byte) (currentIndex >> 8),
                     (byte) (stateIndex >> 0), (byte) (stateIndex >> 8));
+            }
+        }
+
+        [BurstCompile]
+        private struct CollectPixels : IJobParallelFor
+        {
+            [ReadOnly] public NativeArray<Color32> ColorMap;
+            [ReadOnly] public NativeHashMap<Color, int> ColorLookup;
+
+            public NativeMultiHashMap<int, int>.ParallelWriter Collector;
+
+            public void Execute(int index)
+            {
+                Collector.Add(ColorLookup[ColorMap[index]], index);
+            }
+        }
+
+        [BurstCompile]
+        private struct FindCentroid : IJobParallelFor
+        {
+            [ReadOnly] public NativeMultiHashMap<int, int> Collector;
+            [ReadOnly] public int Width;
+
+            [WriteOnly] public NativeArray<Color32> Centroids;
+
+            public void Execute(int index)
+            {
+                if (!Collector.TryGetFirstValue(index, out var point, out var iterator))
+                    return;
+
+                var holder = ConvertToFloat2(point);
+
+                var counter = 1;
+
+                while (Collector.TryGetNextValue(out point, ref iterator))
+                    holder += (ConvertToFloat2(point) - holder) / counter++;
+
+                var centroid = (int2) math.round(holder);
+
+                Centroids[index] = new Color32((byte) (centroid.x >> 0), (byte) (centroid.x >> 8),
+                    (byte) (centroid.y >> 0), (byte) (centroid.y >> 8));
+            }
+
+            private float2 ConvertToFloat2(int index)
+            {
+                var x = index % Width;
+                var y = index / Width;
+
+                return new float2(x, y);
             }
         }
     }

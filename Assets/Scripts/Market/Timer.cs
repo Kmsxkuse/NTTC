@@ -1,15 +1,12 @@
-﻿using System;
-using TMPro;
-using Unity.Entities;
+﻿using TMPro;
 using UnityEngine;
 
 namespace Market
 {
     public class Timer : MonoBehaviour
     {
-        public GameObject SpeedText;
-        
         private TextMeshProUGUI _speedText;
+        public GameObject SpeedText;
 
         private void Start()
         {
@@ -20,7 +17,7 @@ namespace Market
         public void Increase()
         {
             ref var incrementCount = ref ScalarSystem.GetIncrementCount();
-            
+
             if (incrementCount == -1)
                 incrementCount = 64;
             else if (incrementCount > 1)
@@ -31,10 +28,10 @@ namespace Market
         public void Decrease()
         {
             ref var incrementCount = ref ScalarSystem.GetIncrementCount();
-            
+
             if (incrementCount == -1)
                 return;
-            
+
             if (incrementCount < 64)
                 incrementCount *= 2;
             else

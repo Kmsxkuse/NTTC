@@ -11,7 +11,7 @@ namespace CamCode
         {
             var meshRenderer = MainMap.GetComponent<MeshRenderer>();
             var material = meshRenderer.material;
-            
+
             // Setting main map.
             material.mainTexture = MapTexture;
 

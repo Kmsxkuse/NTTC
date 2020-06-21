@@ -19,32 +19,49 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f691e7ce-189d-4a78-a0b7-3bb68e1e41b6" name="Default Changelist" comment="Adding Country to State connection and tag for countries with at least one province on the map.">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/test.png.meta" afterDir="false" />
+    <list default="true" id="f691e7ce-189d-4a78-a0b7-3bb68e1e41b6" name="Default Changelist" comment="Update to 2020.2.15. Complete overhaul of economy to scalar.">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/RiversLoad.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/RiversLoad.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Scalar.compute" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScalarMatrix.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScalarMatrix.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Terrain.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Loading/MarketSystem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/map/river.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/map/river.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/map/rivers.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/map/rivers.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NTTC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Scalar.compute.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Conversion/StatesLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Conversion/StatesLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Loading/MarketSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Population.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Population.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/map/provinces.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/map/provinces.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/test.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/colormap.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/colormap.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/colormap_water.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/colormap_water.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,46 +72,48 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Terrain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Population.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/custom/Agents/Five.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Provinces.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Countries.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factory.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/RiversLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Loading/MarketSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Location.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Market/Scalar.compute" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScalarMatrix.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CamCode/LoadMap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3F320969-2671-46D3-AEAA-DEA90DEA3CDD/5d/cf88041d/ComputeBuffer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/AgentsLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.11.1-preview.4/Unity.Entities/CodeGeneratedJobForEach/LambdaJobQueryConstructionMethods.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.11.1-preview.4/Unity.Entities/EntityManagerCreateDestroyEntities.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/StatesLoad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/States.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/StatesLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/CountriesLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Countries.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MarketMatrix.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ScalarGoods.compute" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Blender.shader" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.shader" />
@@ -102,9 +121,22 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Market/Timer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/MainCam.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ScalarSystemBootstrap.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/ProvinceGen.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Terrain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CamCode/Scalar.compute" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/RiversLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Market/MarketSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/PopsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Location.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ScalarMatrix.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/StatesLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/LoadChain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/DefinitionsLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Provinces.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/ProvinceLoad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Conversion/StateCountryProcessing.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Population.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Market/ScalarSystem.cs" />
       </list>
     </option>
@@ -135,12 +167,16 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8872">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="8872" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -160,6 +196,10 @@
       <workItem from="1591586234628" duration="8805000" />
       <workItem from="1592517658170" duration="4245000" />
       <workItem from="1592522146414" duration="28308000" />
+      <workItem from="1592592620758" duration="32229000" />
+      <workItem from="1592629558863" duration="897000" />
+      <workItem from="1592683412529" duration="11644000" />
+      <workItem from="1592699777010" duration="5337000" />
     </task>
     <task id="LOCAL-00001" summary="Update Unity to 2020.2 a13">
       <created>1591406246458</created>
@@ -182,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591515474449</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update to 2020.2.15. Complete overhaul of economy to scalar.">
+      <created>1592592779075</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592592779075</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
@@ -205,24 +252,49 @@
     <MESSAGE value="Update Unity to 2020.2 a13" />
     <MESSAGE value="Refactoring initialization to separate system manually called by LoadChain" />
     <MESSAGE value="Adding Country to State connection and tag for countries with at least one province on the map." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Country to State connection and tag for countries with at least one province on the map." />
+    <MESSAGE value="Update to 2020.2.15. Complete overhaul of economy to scalar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to 2020.2.15. Complete overhaul of economy to scalar." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="670" y="146" key="RiderGenerateDialog" timestamp="1591507962320">
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592699797651">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="670" y="146" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1591507962320" />
-    <state x="803" y="369" key="SettingsEditor" timestamp="1591408586842">
+    <state x="414" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592699797651" />
+    <state x="703" y="375" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1592688533396">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="803" y="369" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1591408586842" />
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1591515482643">
+    <state x="703" y="375" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1080@0.0.1920.1080" timestamp="1592688533396" />
+    <state width="1877" height="292" key="GridCell.Tab.0.bottom" timestamp="1592629531292">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1591515482643" />
-    <state x="639" y="277" width="642" height="526" key="find.popup" timestamp="1591514958304">
+    <state width="1877" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1592629531292" />
+    <state width="1877" height="292" key="GridCell.Tab.0.center" timestamp="1592629531291">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="639" y="277" width="642" height="526" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1591514958304" />
+    <state width="1877" height="292" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1592629531291" />
+    <state width="1877" height="292" key="GridCell.Tab.0.left" timestamp="1592629531291">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1592629531291" />
+    <state width="1877" height="292" key="GridCell.Tab.0.right" timestamp="1592629531291">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1877" height="292" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1592629531291" />
+    <state x="670" y="146" key="RiderGenerateDialog" timestamp="1592689356171">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="670" y="146" key="RiderGenerateDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1592689356171" />
+    <state x="803" y="369" key="SettingsEditor" timestamp="1592702041947">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="803" y="369" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1592702041947" />
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2" timestamp="1592592781785">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="552" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1592592781785" />
+    <state x="697" y="475" width="642" height="526" key="find.popup" timestamp="1592689054271">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="697" y="475" width="642" height="526" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1592689054271" />
   </component>
 </project>

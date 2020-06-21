@@ -18,7 +18,8 @@ namespace Conversion
             var idLookup = new Dictionary<int, int>();
             var provEntityLookup = new Dictionary<int, Entity>();
 
-            foreach (var rawLine in File.ReadLines(Path.Combine(Application.streamingAssetsPath, "map", "definition.csv")))
+            foreach (var rawLine in File.ReadLines(Path.Combine(Application.streamingAssetsPath,
+                "map", "definition.csv")))
             {
                 if (CommentDetector(rawLine, out var line))
                     continue;
@@ -40,7 +41,7 @@ namespace Conversion
                 idLookup.Add(provNum, definedNames.Count);
                 colorLookup.Add(foundColor, definedNames.Count);
 
-                var provEntity = em.CreateEntity(typeof(Province));
+                var provEntity = em.CreateEntity(typeof(Province), typeof(OceanProvince));
                 em.SetComponentData(provEntity, new Province {Index = definedNames.Count, Owner = oceanDefault});
                 provEntityLookup.Add(provNum, provEntity);
 
@@ -50,7 +51,7 @@ namespace Conversion
 
             return (definedNames, idLookup, provEntityLookup);
 
-            bool CommentDetector(string line, out string sliced)
+            static bool CommentDetector(string line, out string sliced)
             {
                 // Comment Detector. Will also lowercase everything. Throwing away comments.
                 sliced = line.ToLowerInvariant().Split(new[] {"#"}, StringSplitOptions.None)[0].Trim();

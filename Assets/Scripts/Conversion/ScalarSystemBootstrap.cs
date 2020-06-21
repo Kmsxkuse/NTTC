@@ -6,8 +6,8 @@ namespace Conversion
 {
     public class ScalarSystemBootstrap : MonoBehaviour
     {
-        public GameObject TickText;
         public ComputeShader ScalarShader;
+        public GameObject TickText;
 
         public void Awake()
         {

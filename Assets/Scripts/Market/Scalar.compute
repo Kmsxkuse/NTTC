@@ -1,0 +1,35 @@
+﻿#pragma kernel ScalarProcess
+
+struct Delta
+{
+    float MovementModifier;
+    float NetGoods;
+};
+
+RWTexture2D<float4> Field; // Scalar field of goods in ProvinceGen like storage of ints.
+
+Texture2D<float4> ProvinceIds;//, Rivers; // 5616 x 2160 textures. Province Ids. River and ocean pixels (To Be Imp.).
+
+Texture2D<float4> ProvCentroids; // Prov Num x 1 texture. RG used for X. BA used for Y. Max pixel resolution 65536 x 65536.
+
+StructuredBuffer<Delta> ProvinceGoodDeltas;
+
+[numthreads(8,8,1)] // Magic numbers. http://kylehalladay.com/blog/tutorial/2014/06/27/Compute-Shaders-Are-Nifty.html
+void ScalarProcess (uint3 position : SV_DispatchThreadID)
+{
+    /* Works, kinda.
+    float4 idColor = ProvinceIds[position.xy];
+    int index = round(idColor.x * 255 + idColor.y * 255 * 256);
+    
+    float4 centroidColor = ProvCentroids[uint2(index, 0)];
+    float xCentroid = centroidColor.x * 255 + centroidColor.y * 255 * 256;
+    float yCentroid = centroidColor.z * 255 + centroidColor.w * 255 * 256;
+
+    float4 difference = abs(float4(position.x - xCentroid, position.y - yCentroid, 0, 0));
+
+    // Step evaluates along a float4 array.
+    // Resulting in a logic float4 output [eg: (0, 1, 0, 0)] that is then used to lerp individually.
+    // For absolute left or right depending on difference, will need to individually lerp RGBA and combine into a float4.
+    Field[position.xy] = lerp(float4(0,0,0,1), float4(1,1,1,1), step(float4(0.01, 0.01, 0, 0), difference));
+    */
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "Name": "Ocean",
+    "Color": {
+      "r": 255,
+      "g": 0,
+      "b": 128,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "Land",
+    "Color": {
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "Start",
+    "Color": {
+      "r": 0,
+      "g": 255,
+      "b": 0,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "Merge",
+    "Color": {
+      "r": 255,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "River 1",
+    "Color": {
+      "r": 0,
+      "g": 0,
+      "b": 100,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "River 2",
+    "Color": {
+      "r": 0,
+      "g": 0,
+      "b": 150,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "River 3",
+    "Color": {
+      "r": 0,
+      "g": 0,
+      "b": 200,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "River 4",
+    "Color": {
+      "r": 0,
+      "g": 0,
+      "b": 255,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "River 5",
+    "Color": {
+      "r": 0,
+      "g": 100,
+      "b": 255,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "River 6",
+    "Color": {
+      "r": 0,
+      "g": 200,
+      "b": 255,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  },
+  {
+    "Name": "River 7",
+    "Color": {
+      "r": 0,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "MovementModifier": 1.0
+  }
+]

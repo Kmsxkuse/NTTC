@@ -20,8 +20,6 @@ namespace Conversion
 
             var stateIdNames = new List<string>();
             var stateLookupArray = new List<List<int>>();
-            
-            var defInv = new NativeArray<Inventory>(LoadChain.GoodNum, Allocator.Temp);
 
             foreach (var rawLine in slicedText)
             {
@@ -71,16 +69,13 @@ namespace Conversion
             var em = World.DefaultGameObjectInjectionWorld.EntityManager;
             for (var stateIndex = 0; stateIndex < stateIdNames.Count; stateIndex++)
             {
-                var stateEntity = em.CreateEntity(typeof(State), typeof(FactoryWrapper), typeof(Inventory));
+                var stateEntity = em.CreateEntity(typeof(State));
                 em.SetComponentData(stateEntity, new State(stateIndex, stateToProvReference));
-                em.GetBuffer<Inventory>(stateEntity).AddRange(defInv);
                 em.SetName(stateEntity, "State: " + stateIdNames[stateIndex]); //DEBUG
-                
+
                 foreach (var provId in stateLookupArray[stateIndex])
                     provToStateArray[provId] = stateEntity;
             }
-
-            defInv.Dispose();
 
             // Creating prov to state blob lookup nested array
             BlobAssetReference<ProvToState> provToStateReference;

@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Unity.Collections;
 using Unity.Entities;
-using UnityEngine;
 
 // ReSharper disable ConvertToUsingDeclaration
 
@@ -72,7 +71,7 @@ public readonly struct BidKey : IEquatable<BidKey>
     public override int GetHashCode()
     {
         // Level is not included as multiple levels are not intended to be together.
-        return _keyEntityLocation.GetHashCode() ^ (_good << 2) * (int) _type;
+        return _keyEntityLocation.GetHashCode() ^ ((_good << 2) * (int) _type);
     }
 
     public enum Transaction
@@ -119,24 +118,22 @@ public static class MarketConvert
             throw new Exception("Invalid market matrix. Priority array length not " +
                                 "corresponding to Deltas and Demand length.");
 
-        using (var marketIdentity = new BlobBuilder(Allocator.Temp))
+        using var marketIdentity = new BlobBuilder(Allocator.Temp);
+        ref var marketMatrix = ref marketIdentity.ConstructRoot<MarketMatrix>();
+
+        // Can not merge. Blame Unity.
+        var deltas = marketIdentity.Allocate(ref marketMatrix.Deltas, arrayLengths);
+        SetAllocation(ref deltas, marketJson.Deltas);
+
+        var priority = marketIdentity.Allocate(ref marketMatrix.Priority, arrayLengths);
+        SetAllocation(ref priority, priorityExist ? marketJson.Priority : new int[arrayLengths]);
+
+        return marketIdentity.CreateBlobAssetReference<MarketMatrix>(Allocator.Persistent);
+
+        void SetAllocation<T>(ref BlobBuilderArray<T> builderArray, IReadOnlyList<T> managedArray) where T : struct
         {
-            ref var marketMatrix = ref marketIdentity.ConstructRoot<MarketMatrix>();
-
-            // Can not merge. Blame Unity.
-            var deltas = marketIdentity.Allocate(ref marketMatrix.Deltas, arrayLengths);
-            SetAllocation(ref deltas, marketJson.Deltas);
-
-            var priority = marketIdentity.Allocate(ref marketMatrix.Priority, arrayLengths);
-            SetAllocation(ref priority, priorityExist ? marketJson.Priority : new int[arrayLengths]);
-
-            return marketIdentity.CreateBlobAssetReference<MarketMatrix>(Allocator.Persistent);
-
-            void SetAllocation<T>(ref BlobBuilderArray<T> builderArray, IReadOnlyList<T> managedArray) where T : struct
-            {
-                for (var i = 0; i < managedArray.Count; i++)
-                    builderArray[i] = managedArray[i];
-            }
+            for (var i = 0; i < managedArray.Count; i++)
+                builderArray[i] = managedArray[i];
         }
     }
 }

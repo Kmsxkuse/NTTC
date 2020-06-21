@@ -52,17 +52,17 @@ namespace Conversion
             em.SetComponentData(target, new Country {Color = new Color32(0, 191, 255, 255)});
             countryTags.Add("OCEAN", target);
             em.SetName(target, "Country: Ocean"); // DEBUG
-            
+
             target = em.CreateEntity(typeof(Country), typeof(UncolonizedCountry));
             em.SetComponentData(target, new Country {Color = new Color32(255, 228, 181, 255)});
             countryTags.Add("UNCOLONIZED", target);
             em.SetName(target, "Country: Uncolonized"); // DEBUG
-            
+
             // Setting default good prices using prices
             var defaultPrice = new NativeArray<Prices>(LoadChain.GoodNum, Allocator.Temp);
             for (var index = 0; index < defaultPrice.Length; index++)
                 defaultPrice[index] = new Prices(1);
-            
+
             // Setting holder for total goods transacted
             var goodsTraded = new NativeArray<Inventory>(LoadChain.GoodNum, Allocator.Temp);
 

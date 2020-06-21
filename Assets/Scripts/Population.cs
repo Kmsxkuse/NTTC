@@ -1,32 +1,29 @@
-﻿using System;
-using Unity.Entities;
-using UnityEngine;
+﻿using Unity.Entities;
 
-public struct Population : IComponentData
+public struct Population : IBufferElementData
 {
-    // Bottom up connection. Linked by PopEmployment buffer.
+    // Dynamic Buffer under Province Entity.
     public int Quantity, Employed;
-    //public float Satisfaction;
-}
+    public float Wealth;
 
-public struct Ethnicity : IComponentData
-{
-    public int Culture, Religion;
-}
-
-public readonly struct Location : IComponentData
-{
-    public readonly Entity Province, State;
-    
-    public Location(Entity province, Entity state)
+    public Population(int quantity, int employed, float wealth)
     {
-        Province = province;
-        State = state;
+        Quantity = quantity;
+        Employed = employed;
+        Wealth = wealth;
     }
 }
 
-public struct PopEmployment : IBufferElementData
+public struct FactoryEmployment : IBufferElementData
 {
-    public Entity Factory;
-    public int Employed;
+    // Dynamic Buffer under Factory Entity;
+    public Entity Province;
+    public int PopIndex, Quantity;
+
+    public FactoryEmployment(Entity province, int popIndex, int quantity)
+    {
+        Province = province;
+        PopIndex = popIndex;
+        Quantity = quantity;
+    }
 }
